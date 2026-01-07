@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Fractions, Decimals, Percentages, Ratios, and GST</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #2E004F;
+            --accent-color: #00008B;
+            --success-color: #2E7D32;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-main: #222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 24px; /* Significantly increased base font size */
+        }
+
+        .layout { display: flex; flex: 1; overflow: hidden; }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px; /* Wider sidebar */
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px; font-weight: 700; margin-bottom: 40px;
+            border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .nav-item {
+            padding: 18px 20px; cursor: pointer; border-radius: 8px; margin-bottom: 12px;
+            transition: background 0.2s; opacity: 0.9; font-size: 20px; font-weight: 500;
+        }
+        .nav-item:hover { background-color: rgba(255,255,255,0.15); opacity: 1; }
+        .nav-item.active { background-color: var(--accent-color); opacity: 1; font-weight: 700; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+
+        /* Navigation Buttons in Sidebar */
+        .sidebar-controls {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        .nav-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            flex: 1;
+            font-size: 18px;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .nav-btn:disabled {
+            background-color: rgba(255,255,255,0.2);
+            cursor: not-allowed;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background-color: #000060;
+        }
+
+        /* Slide Counter in Sidebar */
+        .slide-counter {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Main Content */
+        .main-stage {
+            flex: 1; position: relative; overflow-y: auto; padding: 50px;
+            display: flex; justify-content: center;
+        }
+
+        .slide-container { width: 100%; max-width: 1400px; padding-bottom: 120px; } /* Increased max-width */
+
+        .slide { display: none; animation: fadeIn 0.4s ease-out; }
+        .slide.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Components */
+        h1 { 
+            color: var(--primary-color); 
+            margin-bottom: 30px; 
+            border-bottom: 4px solid #ddd; 
+            padding-bottom: 15px; 
+            font-size: 56px; /* Massive Title */
+            font-weight: 700;
+        }
+        
+        h3 { 
+            color: var(--accent-color); 
+            margin: 40px 0 20px; 
+            border-left: 8px solid var(--accent-color); 
+            padding-left: 20px; 
+            font-size: 36px;
+        }
+        
+        p { margin-bottom: 20px; font-size: 26px; }
+        
+        /* Explanation Box */
+        .teach-block {
+            background: #fff; border: 2px solid #ddd; border-radius: 12px;
+            padding: 40px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .worked-example {
+            background-color: #f3e5f5;
+            border-left: 10px solid #2E004F;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        .worked-example-title { 
+            font-weight: bold; color: #2E004F; margin-bottom: 20px; display:block; font-size: 30px; 
+        }
+
+        /* Questions */
+        .question-card {
+            background: #fff; border: 3px solid #ccc; border-radius: 12px;
+            margin-bottom: 40px; overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .question-header {
+            padding: 25px 35px; background: #f0f0f0; font-weight: 700; font-size: 28px;
+            border-bottom: 2px solid #ddd; display: flex; justify-content: space-between; align-items: center;
+        }
+        .question-body { padding: 35px; font-size: 28px; }
+
+        /* Difficulty Themes */
+        .q-easy { border-color: #4caf50; }
+        .q-easy .question-header { background-color: #e8f5e9; color: #1b5e20; }
+
+        .q-medium { border-color: #ff9800; }
+        .q-medium .question-header { background-color: #fff3e0; color: #e65100; }
+
+        .q-hard { border-color: #d32f2f; }
+        .q-hard .question-header { background-color: #ffebee; color: #b71c1c; }
+
+        /* Buttons & Solutions */
+        .btn-reveal {
+            background-color: var(--accent-color); color: white; border: none;
+            padding: 15px 30px; border-radius: 8px; cursor: pointer; margin-top: 25px;
+            font-size: 22px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .btn-reveal:hover { background-color: #000060; transform: translateY(-2px); }
+
+        .solution {
+            display: none; margin-top: 30px; background: #e8f5e9;
+            border-left: 8px solid var(--success-color); border-radius: 8px; overflow: hidden;
+        }
+        .solution.show { display: block; animation: fadeIn 0.3s; }
+        
+        .solution-content { padding: 30px; font-size: 28px; }
+
+        /* Checklist */
+        .info-box { 
+            background-color: #e3f2fd; border: 3px solid #bbdefb; padding: 35px; 
+            border-radius: 12px; margin-bottom: 35px; 
+        }
+        .checklist { list-style: none; padding: 0; }
+        .checklist li {
+            background: #fff; padding: 18px; margin-bottom: 15px; border-radius: 8px;
+            display: flex; align-items: center; gap: 20px; border: 2px solid #eee;
+            font-size: 24px;
+        }
+        input[type="checkbox"] { width: 35px; height: 35px; accent-color: var(--success-color); cursor: pointer; }
+
+        /* MathJax Font Scaling */
+        mjx-container { font-size: 110% !important; }
+
+        @media (max-width: 1000px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding: 15px; flex-wrap: wrap;}
+            .nav-item { white-space: nowrap; font-size: 18px; margin-bottom: 0; margin-right: 10px; }
+            .slide-counter { display: none; }
+            .sidebar-controls { display: none; /* Hide sidebar controls on mobile, rely on scroll or add bottom controls back */ }
+            .main-stage { padding: 20px; }
+            h1 { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <div class="logo">Lesson 1: Fractions, Decimals, Percentages, Ratios, and GST</div>
+            <div class="nav-item active" onclick="jumpToChapter(0)">1. Intro</div>
+            <div class="nav-item" onclick="jumpToChapter(1)">2. Basics</div>
+            <div class="nav-item" onclick="jumpToChapter(5)">3. Finance</div>
+            <div class="nav-item" onclick="jumpToChapter(9)">4. Ratios</div>
+            <div class="nav-item" onclick="jumpToChapter(13)">5. Finish</div>
+            
+            <div class="sidebar-controls">
+                <button id="prevBtn" class="nav-btn" onclick="moveSlide(-1)">&#8592; Back</button>
+                <button id="nextBtn" class="nav-btn" onclick="moveSlide(1)">Next &#8594;</button>
+            </div>
+            
+            <div class="slide-counter">Slide <span id="slide-num">1</span> / 14</div>
+        </nav>
+
+        <main class="main-stage">
+            <div class="slide-container">
+
+                <!-- SLIDE 0: INTRO -->
+                <div class="slide active" data-chapter="0">
+                    <h1>1. Introduction</h1>
+                    <p>Welcome to General Mathematics Unit 1. This lesson establishes the foundational numerical skills required for the course. We will focus on mastering the connections between fractions, decimals, and percentages, before applying these skills to real-world financial scenarios. Specifically, you will learn how to perform calculations involving GST, manipulate ratios to share quantities, and use the unitary method to compare prices effectively.</p>
+                    
+                    <div class="info-box" style="background-color: #fff3e0; border-color: #ffe0b2;">
+                        <span style="font-weight:bold; color:#e65100; font-size:32px; display:block; margin-bottom:20px;">🎯 Learning Roadmap</span>
+                        <p>Tick these off as you master them:</p>
+                        <ul class="checklist">
+                            <li><input type="checkbox" data-sc="1"> Convert fractions to percentages.</li>
+                            <li><input type="checkbox" data-sc="2"> Convert decimals to percentages.</li>
+                            <li><input type="checkbox" data-sc="3"> Convert percentages to fractions.</li>
+                            <li><input type="checkbox" data-sc="4"> Convert percentages to decimals.</li>
+                            <li><input type="checkbox" data-sc="5"> Find a percentage of a quantity.</li>
+                            <li><input type="checkbox" data-sc="6"> Increase or decrease a value by a percentage.</li>
+                            <li><input type="checkbox" data-sc="7"> Find percentage increase or decrease.</li>
+                            <li><input type="checkbox" data-sc="8"> Calculate GST.</li>
+                            <li><input type="checkbox" data-sc="9"> Find original cost (Reverse GST).</li>
+                            <li><input type="checkbox" data-sc="10"> Find GST component.</li>
+                            <li><input type="checkbox" data-sc="11"> Express quantities as a ratio.</li>
+                            <li><input type="checkbox" data-sc="12"> Express a ratio in simplest form.</li>
+                            <li><input type="checkbox" data-sc="13"> Divide a quantity in a given ratio.</li>
+                            <li><input type="checkbox" data-sc="14"> Use the unitary method.</li>
+                        </ul>
+                    </div>
+
+                    <h3>🔥 Warm Up: Mental Math</h3>
+                    <div class="question-card q-easy">
+                        <div class="question-body">
+                            <ol style="margin-left: 40px; margin-bottom: 20px;">
+                                <li>What is 50% as a fraction?</li>
+                                <li>What is 0.1 as a percentage?</li>
+                                <li>Divide 20 into 4 equal parts.</li>
+                                <li>If 1 part = 5, what do 3 parts equal?</li>
+                            </ol>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Check Answers</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>1. \( \frac{1}{2} \)</p>
+                                    <p>2. 10%</p>
+                                    <p>3. 5</p>
+                                    <p>4. 15</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 1: BASICS TEACH & EXAMPLES -->
+                <div class="slide" data-chapter="1">
+                    <h1>2. Basics: Concepts & Examples</h1>
+                    
+                    <div class="info-box" style="background-color: #e8f5e9; border-color: #c8e6c9;">
+                        <ul class="checklist" style="margin:0;">
+                            <li><input type="checkbox" data-sc="1"> Convert fractions to percentages.</li>
+                            <li><input type="checkbox" data-sc="2"> Convert decimals to percentages.</li>
+                            <li><input type="checkbox" data-sc="3"> Convert percentages to fractions.</li>
+                            <li><input type="checkbox" data-sc="4"> Convert percentages to decimals.</li>
+                            <li><input type="checkbox" data-sc="5"> Find a percentage of a quantity.</li>
+                        </ul>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part A: Conversions</h3>
+                        <p>Fractions, decimals, and percentages are effectively three different languages for describing the same quantities—parts of a whole. Choosing the right form depends on the situation:</p>
+                        <ul style="margin-left: 40px; margin-bottom: 30px;">
+                            <li><strong>Fractions</strong> allow for exact precision (e.g., \( \frac{1}{3} \) is exact, whereas \( 0.333... \) requires rounding). They are preferred in algebra.</li>
+                            <li><strong>Decimals</strong> are the standard for currency, measurement, and digital input (calculators).</li>
+                            <li><strong>Percentages</strong> provide a universal standard (out of 100) that makes comparing different proportions, such as test scores or interest rates, much easier.</li>
+                        </ul>
+                        <p><strong>Key Conversion Rules:</strong></p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Fraction &#8594; %:</strong> Multiply by 100.</li>
+                            <li><strong>Decimal &#8594; %:</strong> Multiply by 100 (move decimal 2 spots right).</li>
+                            <li><strong>% &#8594; Fraction:</strong> Put over 100 and simplify.</li>
+                        </ul>
+                        
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 1: Conversions</span>
+                            <p><strong>1. Convert \( \frac{3}{8} \) to a percentage.</strong></p>
+                            <p><strong>2. Convert 16% to a fraction.</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>1. \( \frac{3}{8} \times 100 = \frac{300}{8} = \mathbf{37.5\%} \)</p>
+                                    <p>2. \( \frac{16}{100} \). Divide top/bottom by 4 = \( \mathbf{\frac{4}{25}} \)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part B: Percentage of a Quantity</h3>
+                        <p>When we talk about finding a "percentage of" something in mathematics, the word <strong>"of"</strong> almost always implies <strong>multiplication</strong>. To calculate this, we cannot multiply by the percentage number directly (e.g. 50). Instead, we must first convert the percentage into a usable number—either a fraction or a decimal.</p>
+                        <p><strong>The Strategy:</strong></p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Step 1:</strong> Convert the percentage to a decimal (divide by 100).</li>
+                            <li><strong>Step 2:</strong> Multiply the decimal by the total amount.</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">Formula: \( \text{Amount} \times \text{Decimal} \)</p>
+                        
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 2: Calculation</span>
+                            <p><strong>Find 12% of $850.</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Convert 12% to decimal \( \rightarrow 0.12 \).</p>
+                                    <p>Step 2: Multiply. \( 850 \times 0.12 = \mathbf{\$102} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: BASICS PRACTICE 1 -->
+                <div class="slide" data-chapter="1">
+                    <h1>2. Basics: Practice (Part A)</h1>
+                    
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q1. Convert to Percentage</div>
+                        <div class="question-body">
+                            <p>Convert \( \frac{4}{25} \) to a percentage.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Multiply by 100:</p>
+                                    <p>$$ \frac{4}{25} \times 100 = \frac{400}{25} = \mathbf{16\%} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q2. Convert to Percentage (Decimal)</div>
+                        <div class="question-body">
+                            <p>Convert 0.82 to a percentage.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Multiply by 100 (move decimal 2 spots right):</p>
+                                    <p>$$ 0.82 \times 100 = \mathbf{82\%} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q3. Convert Mixed Number</div>
+                        <div class="question-body">
+                            <p>Convert \( 1 \frac{1}{2} \) to a percentage.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Method: Convert to decimal first or improper fraction.</p>
+                                    <p>\( 1 \frac{1}{2} = 1.5 \)</p>
+                                    <p>$$ 1.5 \times 100 = \mathbf{150\%} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q4. Convert Decimal to Fraction</div>
+                        <div class="question-body">
+                            <p>Convert 12.5% to a simplified fraction.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Write over 100. \( \frac{12.5}{100} \)</p>
+                                    <p>Step 2: Remove decimal (multiply both by 10). \( \frac{125}{1000} \)</p>
+                                    <p>Step 3: Simplify (divide by 125). \( \mathbf{\frac{1}{8}} \)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q5. Complex Fraction Conversion</div>
+                        <div class="question-body">
+                            <p>Convert the complex fraction \( \frac{3/4}{2.5} \) to a percentage.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Convert \( \frac{3}{4} \) to 0.75.</p>
+                                    <p>Step 2: Divide: \( 0.75 \div 2.5 = 0.3 \).</p>
+                                    <p>Step 3: Convert to percentage: \( 0.3 \times 100 = \mathbf{30\%} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: BASICS PRACTICE 2 -->
+                <div class="slide" data-chapter="1">
+                    <h1>2. Basics: Practice (Part B)</h1>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q6. Simple Calculation</div>
+                        <div class="question-body">
+                            <p>Calculate 50% of 120.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>50% is half.</p>
+                                    <p>$$ 120 \div 2 = \mathbf{60} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q7. Calculation</div>
+                        <div class="question-body">
+                            <p>Calculate 18% of 2500 kg.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Convert 18% to 0.18.</p>
+                                    <p>$$ 0.18 \times 2500 = \mathbf{450 \text{ kg}} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q8. Compound Percentage</div>
+                        <div class="question-body">
+                            <p>A population of 10,000 grows by 10% in Year 1, and then by 20% in Year 2. What is the total population after 2 years?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Year 1: \( 10,000 \times 1.10 = 11,000 \).</p>
+                                    <p>Year 2: \( 11,000 \times 1.20 = 13,200 \).</p>
+                                    <p><strong>Answer: 13,200 (Note: Total growth is 32%, not 30%)</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4: BASICS SUMMARY -->
+                <div class="slide" data-chapter="1">
+                    <h1>Section Summary: Basics</h1>
+                    <div class="info-box">
+                        <p>How comfortable do you feel with conversions?</p>
+                        <ul class="checklist">
+                            <li><input type="checkbox" data-sc="1"> Convert fractions to percentages.</li>
+                            <li><input type="checkbox" data-sc="2"> Convert decimals to percentages.</li>
+                            <li><input type="checkbox" data-sc="3"> Convert percentages to fractions.</li>
+                            <li><input type="checkbox" data-sc="4"> Convert percentages to decimals.</li>
+                            <li><input type="checkbox" data-sc="5"> Find a percentage of a quantity.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5: FINANCE TEACH & EXAMPLES -->
+                <div class="slide" data-chapter="5">
+                    <h1>3. Finance: Concepts & Examples</h1>
+                    
+                    <div class="info-box" style="background-color: #e8f5e9; border-color: #c8e6c9;">
+                        <ul class="checklist" style="margin:0;">
+                            <li><input type="checkbox" data-sc="6"> Increase or decrease a value by a percentage.</li>
+                            <li><input type="checkbox" data-sc="7"> Find percentage increase or decrease.</li>
+                            <li><input type="checkbox" data-sc="8"> Calculate GST.</li>
+                            <li><input type="checkbox" data-sc="9"> Find original cost (Reverse GST).</li>
+                            <li><input type="checkbox" data-sc="10"> Find GST component.</li>
+                        </ul>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part A: The Multiplier Method</h3>
+                        <p>The <strong>Multiplier Method</strong> is a powerful shortcut for increasing or decreasing a quantity by a percentage in a single step. Instead of calculating the specific dollar amount of the change and then adding or subtracting it, we adjust the "whole" (100%) directly.</p>
+                        <p>This is particularly useful for financial calculations like interest or repeated discounts.</p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Increase by 20%:</strong> You start with 100% and add 20%. You now have 120%. As a decimal, this is <strong>1.20</strong>.</li>
+                            <li><strong>Decrease by 15%:</strong> You start with 100% and remove 15%. You have 85% remaining. As a decimal, this is <strong>0.85</strong>.</li>
+                        </ul>
+
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 3: Discounts</span>
+                            <p><strong>A video game costs $60 and is discounted by 15%. Find the new price.</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Multiplier is \( 1 - 0.15 = 0.85 \).</p>
+                                    <p>Step 2: \( 60 \times 0.85 = \mathbf{\$51} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part B: GST (Goods & Services Tax)</h3>
+                        <p><strong>What is GST?</strong></p>
+                        <p>In Australia, the <strong>Goods and Services Tax (GST)</strong> is a broad-based tax of <strong>10%</strong> on most goods, services and other items sold or consumed in Australia.</p>
+                        <p><strong>Where does it apply?</strong> It applies to most purchases including:</p>
+                        <ul>
+                            <li>Electronics (phones, laptops)</li>
+                            <li>Restaurant meals and takeaway food</li>
+                            <li>Clothing and footwear</li>
+                            <li>Services like plumbing, electrical work, and legal advice</li>
+                        </ul>
+                        <p><strong>Exceptions (GST-free):</strong> Most basic food (fresh fruit, vegetables, bread, milk), some education courses, and some medical, health and care products and services are GST-free.</p>
+                        <p><strong>Why do we have it?</strong> Businesses collect this extra 10% from customers and pay it to the Australian Taxation Office (ATO). The money collected is distributed to the states and territories to help fund public services like <strong>schools, hospitals, and roads</strong>.</p>
+                        <hr style="margin: 30px 0;">
+                        <p><strong>The Calculations:</strong></p>
+                        <ul style="margin-left: 40px;">
+                            <li><strong>Add GST (Calculate Price):</strong> Multiply by <strong>1.1</strong>.</li>
+                            <li><strong>Remove GST (Find Original Cost):</strong> Divide by <strong>1.1</strong>. <br><em>(Caution: Do not subtract 10%!)</em></li>
+                            <li><strong>Find GST Component:</strong> Divide Final Price by <strong>11</strong>.</li>
+                        </ul>
+
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 4: Reverse GST</span>
+                            <p><strong>A plumber's invoice is $220 including GST. Find the pre-tax cost.</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Identify "Including GST" means we divide.</p>
+                                    <p>Step 2: \( 220 \div 1.1 = \mathbf{\$200} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 6: FINANCE PRACTICE A -->
+                <div class="slide" data-chapter="5">
+                    <h1>3. Finance: Practice (Part A)</h1>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q9. Simple Increase</div>
+                        <div class="question-body">
+                            <p>Increase $50 by 10%.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>10% of $50 is $5.</p>
+                                    <p>$$ 50 + 5 = \mathbf{\$55} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q10. Population Growth</div>
+                        <div class="question-body">
+                            <p>The population of a town is 12,000. It increases by 5% in one year. What is the new population?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Multiplier = 1.05.</p>
+                                    <p>$$ 12000 \times 1.05 = \mathbf{12,600} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q11. Discount</div>
+                        <div class="question-body">
+                            <p>A laptop is listed at $1,200 but is on sale for 20% off. Calculate the sale price.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Multiplier = 0.80 (paying 80%).</p>
+                                    <p>$$ 1200 \times 0.80 = \mathbf{\$960} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q12. The Double Change (Trick)</div>
+                        <div class="question-body">
+                            <p>A price is increased by 25%. The new price is then <strong>decreased</strong> by 20%. If the final price is $150, what was the <strong>original</strong> price?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Check the total multiplier. \( 1.25 \times 0.80 = 1.0 \).</p>
+                                    <p>Step 2: This means the price did not change!</p>
+                                    <p><strong>Answer: $150</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q13. Reverse Profit (Hard)</div>
+                        <div class="question-body">
+                            <p>A store sells a bike for $550, making a 10% profit on the <strong>cost price</strong>. How much did the store buy the bike for?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>The selling price represents 110% of the cost price.</p>
+                                    <p>$$ \text{Cost} = 550 \div 1.1 $$</p>
+                                    <p><strong>Answer: $500</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 7: FINANCE PRACTICE B -->
+                <div class="slide" data-chapter="5">
+                    <h1>3. Finance: Practice (Part B)</h1>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q14. Adding GST</div>
+                        <div class="question-body">
+                            <p>Calculate the final price of a $20 book after adding 10% GST.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Multiply by 1.1.</p>
+                                    <p>$$ 20 \times 1.1 = \mathbf{\$22} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q15. GST Component</div>
+                        <div class="question-body">
+                            <p>Calculate the amount of GST included in a purchase of $110.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Divide final price by 11.</p>
+                                    <p>$$ 110 \div 11 = \mathbf{\$10} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q16. Reverse GST</div>
+                        <div class="question-body">
+                            <p>An electrician’s invoice is $440 (including GST). Calculate the pre-tax cost.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>To remove GST, divide by 1.1.</p>
+                                    <p>$$ 440 \div 1.1 = \mathbf{\$400} $$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q17. Mixed GST Basket</div>
+                        <div class="question-body">
+                            <p>A shopping bill totals $160 (including GST). It includes $50 worth of fresh fruit (GST-free). Calculate the GST paid on the rest of the items.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Identify taxable amount. \( 160 - 50 = \$110 \).</p>
+                                    <p>Step 2: Calculate GST on the $110. \( 110 \div 11 = \$10 \).</p>
+                                    <p><strong>Answer: $10</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 8: FINANCE SUMMARY -->
+                <div class="slide" data-chapter="5">
+                    <h1>Section Summary: Finance</h1>
+                    <div class="info-box">
+                        <p>Progress Check:</p>
+                        <ul class="checklist">
+                            <li><input type="checkbox" data-sc="6"> Increase or decrease a value by a percentage.</li>
+                            <li><input type="checkbox" data-sc="7"> Find percentage increase or decrease.</li>
+                            <li><input type="checkbox" data-sc="8"> Calculate GST.</li>
+                            <li><input type="checkbox" data-sc="9"> Find original cost (Reverse GST).</li>
+                            <li><input type="checkbox" data-sc="10"> Find GST component.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SLIDE 9: RATIOS TEACH & EXAMPLES -->
+                <div class="slide" data-chapter="9">
+                    <h1>4. Ratios: Concepts & Examples</h1>
+                    
+                    <div class="info-box" style="background-color: #e8f5e9; border-color: #c8e6c9;">
+                        <ul class="checklist" style="margin:0;">
+                            <li><input type="checkbox" data-sc="11"> Express quantities as a ratio.</li>
+                            <li><input type="checkbox" data-sc="12"> Express a ratio in simplest form.</li>
+                            <li><input type="checkbox" data-sc="13"> Divide a quantity in a given ratio.</li>
+                            <li><input type="checkbox" data-sc="14"> Use the unitary method to solve problems.</li>
+                        </ul>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part A: Sharing Ratios</h3>
+                        <p>Ratios allow us to divide a total quantity into unequal shares. Think of a ratio like <strong>3:7</strong> as "shares" or "parts" of a whole pile.</p>
+                        <ul style="margin-left: 40px; margin-bottom: 20px;">
+                            <li>Person A gets 3 parts.</li>
+                            <li>Person B gets 7 parts.</li>
+                            <li>Therefore, the total pile was divided into <strong>3 + 7 = 10 parts</strong>.</li>
+                        </ul>
+                        <p>To solve these problems, we determine the value of a <strong>single part</strong> first, and then multiply by the number of parts each person receives.</p>
+
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 5: Sharing</span>
+                            <p><strong>Share $500 in the ratio 3:7.</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Total parts = \( 3+7=10 \).</p>
+                                    <p>Step 2: 1 part = \( 500 \div 10 = \$50 \).</p>
+                                    <p>Step 3: Shares are \( 3 \times 50 = \$150 \) and \( 7 \times 50 = \$350 \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teach-block">
+                        <h3>Part B: Unitary Method</h3>
+                        <p>The <strong>Unitary Method</strong> derives its name from the word "unit", meaning <strong>one</strong>. It is a logic-based approach used to solve problems where you are given the cost or value of a group (e.g., 5 apples) and need to find the value of a different quantity (e.g., 12 apples).</p>
+                        <p><strong>The Golden Rule:</strong> Always find the value of <strong>one single item</strong> first. Once you know the cost of one unit, you can calculate the cost of any number of units by multiplying.</p>
+                        
+                        <div class="worked-example">
+                            <span class="worked-example-title">👨‍🏫 Worked Example 6: Unitary Method</span>
+                            <p><strong>If 5 apples cost $3.50, how much do 12 apples cost?</strong></p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Steps</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Find the cost of 1 apple (the unit). \( \$3.50 \div 5 = \$0.70 \).</p>
+                                    <p>Step 2: Multiply by the new quantity. \( 12 \times \$0.70 = \mathbf{\$8.40} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 10: RATIOS PRACTICE A -->
+                <div class="slide" data-chapter="9">
+                    <h1>4. Ratios: Practice (Part A)</h1>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q18. Simple Ratio</div>
+                        <div class="question-body">
+                            <p>Simplify the ratio 10 : 20.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Divide both by 10.</p>
+                                    <p>\( \mathbf{1 : 2} \)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q19. Simplify Ratio</div>
+                        <div class="question-body">
+                            <p>Simplify the ratio 150 : 25 : 50.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Find the Highest Common Factor (25).</p>
+                                    <p>Divide all by 25: \( 6 : 1 : 2 \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q20. Unit Conversion</div>
+                        <div class="question-body">
+                            <p>Convert the quantities to the same unit then simplify: 50 cm to 2 m.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Convert to same unit (cm). \( 50 : 200 \).</p>
+                                    <p>Step 2: Divide by 50. \( \mathbf{1 : 4} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q21. Ratio Difference</div>
+                        <div class="question-body">
+                            <p>The ratio of Ann's savings to Bob's savings is 5:3. If the <strong>difference</strong> between their savings is $24, how much have they saved in <strong>total</strong>?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Difference in parts = \( 5 - 3 = 2 \) parts.</p>
+                                    <p>Step 2: 2 parts = $24. So 1 part = $12.</p>
+                                    <p>Step 3: Total parts = \( 5 + 3 = 8 \).</p>
+                                    <p>Step 4: Total = \( 8 \times 12 = \mathbf{\$96} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 11: RATIOS PRACTICE B -->
+                <div class="slide" data-chapter="9">
+                    <h1>4. Ratios: Practice (Part B)</h1>
+
+                    <div class="question-card q-easy">
+                        <div class="question-header">Q22. Best Buy</div>
+                        <div class="question-body">
+                            <p>Which is the better buy? 2 kg of rice for $6.50 or 500 g of rice for $1.80?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Compare cost per kg:</p>
+                                    <p>Option A: \( 6.50 \div 2 = \$3.25/\text{kg} \).</p>
+                                    <p>Option B: \( 1.80 \times 2 = \$3.60/\text{kg} \).</p>
+                                    <p><strong>Option A is cheaper.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q23. Concrete Mixing</div>
+                        <div class="question-body">
+                            <p>Concrete is made using cement, sand, and gravel in the ratio 1:2:3. If you have 24 kg of mix total, how much sand is there?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Total parts = \( 1+2+3 = 6 \).</p>
+                                    <p>Step 2: 1 part = \( 24 \div 6 = 4\text{kg} \).</p>
+                                    <p>Step 3: Sand is 2 parts. \( 2 \times 4 = \mathbf{8\text{kg}} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-medium">
+                        <div class="question-header">Q24. Fuel Consumption</div>
+                        <div class="question-body">
+                            <p>A car travels 240km on 20L of fuel. How far can the same car travel on 8L of fuel?</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Find km per 1 Litre. \( 240 \div 20 = 12 \text{ km/L} \).</p>
+                                    <p>Step 2: Multiply by 8L. \( 12 \times 8 = \mathbf{96 \text{ km}} \).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card q-hard">
+                        <div class="question-header">Q25. Compound Ratio</div>
+                        <div class="question-body">
+                            <p>The ratio of A:B is 2:3. The ratio of B:C is 4:5. Find the ratio of A:C.</p>
+                            <button class="btn-reveal" onclick="toggleSolution(this)">Reveal Solution</button>
+                            <div class="solution">
+                                <div class="solution-content">
+                                    <p>Step 1: Make 'B' the same in both. LCM of 3 and 4 is 12.</p>
+                                    <p>A:B becomes \( (2\times4):(3\times4) = 8:12 \).</p>
+                                    <p>B:C becomes \( (4\times3):(5\times3) = 12:15 \).</p>
+                                    <p>Step 2: Combine. A:B:C = 8:12:15.</p>
+                                    <p><strong>Answer A:C = 8:15</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 12: RATIOS SUMMARY -->
+                <div class="slide" data-chapter="9">
+                    <h1>Section Summary: Ratios</h1>
+                    <div class="info-box">
+                        <p>Progress Check:</p>
+                        <ul class="checklist">
+                            <li><input type="checkbox" data-sc="11"> Express quantities as a ratio.</li>
+                            <li><input type="checkbox" data-sc="12"> Express a ratio in simplest form.</li>
+                            <li><input type="checkbox" data-sc="13"> Divide a quantity in a given ratio.</li>
+                            <li><input type="checkbox" data-sc="14"> Use the unitary method to solve problems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SLIDE 13: CONCLUSION -->
+                <div class="slide" data-chapter="13">
+                    <h1>5. Module Complete</h1>
+                    <p>You have reached the end of the Week 1 Interactive Lesson.</p>
+                    
+                    <div class="info-box" style="background-color: #fff8e1; border-color: #ffecb3;">
+                        <span class="info-title" style="color:#e65100; font-size:32px; font-weight:bold; display:block; margin-bottom:20px;">Final Check</span>
+                        <ul class="checklist">
+                            <li><input type="checkbox" data-sc="1"> Convert fractions to percentages.</li>
+                            <li><input type="checkbox" data-sc="2"> Convert decimals to percentages.</li>
+                            <li><input type="checkbox" data-sc="3"> Convert percentages to fractions.</li>
+                            <li><input type="checkbox" data-sc="4"> Convert percentages to decimals.</li>
+                            <li><input type="checkbox" data-sc="5"> Find a percentage of a quantity.</li>
+                            <li><input type="checkbox" data-sc="6"> Increase or decrease a value by a percentage.</li>
+                            <li><input type="checkbox" data-sc="7"> Find percentage increase or decrease.</li>
+                            <li><input type="checkbox" data-sc="8"> Calculate GST.</li>
+                            <li><input type="checkbox" data-sc="9"> Find original cost (Reverse GST).</li>
+                            <li><input type="checkbox" data-sc="10"> Find GST component.</li>
+                            <li><input type="checkbox" data-sc="11"> Express quantities as a ratio.</li>
+                            <li><input type="checkbox" data-sc="12"> Express a ratio in simplest form.</li>
+                            <li><input type="checkbox" data-sc="13"> Divide a quantity in a given ratio.</li>
+                            <li><input type="checkbox" data-sc="14"> Use the unitary method.</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="text-align:center; margin-top:50px;">
+                        <button class="nav-btn" onclick="location.reload()">Reset Module</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        
+        <!-- Controls moved to sidebar in layout above -->
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const navItems = document.querySelectorAll('.sidebar .nav-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideNumDisplay = document.getElementById('slide-num');
+
+        function updateUI() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlideIndex) {
+                    slide.classList.add('active');
+                    document.querySelector('.main-stage').scrollTop = 0;
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            prevBtn.disabled = currentSlideIndex === 0;
+            nextBtn.disabled = currentSlideIndex === slides.length - 1;
+            slideNumDisplay.textContent = currentSlideIndex + 1;
+
+            const currentChapter = slides[currentSlideIndex].getAttribute('data-chapter');
+            navItems.forEach((item) => item.classList.remove('active'));
+            
+            if (currentChapter == 0) navItems[0].classList.add('active');
+            else if (currentChapter == 1) navItems[1].classList.add('active');
+            else if (currentChapter == 5) navItems[2].classList.add('active');
+            else if (currentChapter == 9) navItems[3].classList.add('active');
+            else if (currentChapter == 13) navItems[4].classList.add('active');
+        }
+
+        function moveSlide(direction) {
+            const newIndex = currentSlideIndex + direction;
+            if (newIndex >= 0 && newIndex < slides.length) {
+                currentSlideIndex = newIndex;
+                updateUI();
+            }
+        }
+
+        function jumpToChapter(slideIndex) {
+            currentSlideIndex = slideIndex;
+            updateUI();
+        }
+
+        function toggleSolution(btn) {
+            const solution = btn.nextElementSibling;
+            if (solution.classList.contains('show')) {
+                solution.classList.remove('show');
+                btn.textContent = "Reveal Solution";
+            } else {
+                solution.classList.add('show');
+                btn.textContent = "Hide Solution";
+            }
+        }
+
+        // Sync Checkboxes
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][data-sc]');
+            
+            // Initial state: Uncheck first SC
+            if(checkboxes.length > 0) checkboxes[0].checked = false;
+
+            checkboxes.forEach(box => {
+                box.addEventListener('change', (e) => {
+                    const scId = e.target.getAttribute('data-sc');
+                    const isChecked = e.target.checked;
+                    document.querySelectorAll(`input[type="checkbox"][data-sc="${scId}"]`).forEach(rb => {
+                        rb.checked = isChecked;
+                    });
+                });
+            });
+            updateUI();
+        });
+    </script>
+</body>
+</html>
