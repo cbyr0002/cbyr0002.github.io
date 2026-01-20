@@ -37,6 +37,9 @@
                     animation: {
                         'fade-in': 'fadeIn 0.6s ease-out forwards',
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 5s ease-in-out infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
                     }
                 }
             }
@@ -56,6 +59,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
         .hero-bg {
             background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%);
             position: relative;
@@ -73,9 +81,35 @@
         .shape-1 { width: 500px; height: 500px; top: -100px; right: -100px; }
         .shape-2 { width: 700px; height: 700px; bottom: -200px; left: -200px; animation-delay: -5s; }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(30px, 20px) rotate(10deg); }
+        /* Floating Bubble Slogans */
+        .bubble-slogan {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            
+            /* Circular Shape Styling */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            
+            /* Typography */
+            font-size: 1.1rem; /* Increased size */
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            pointer-events: none;
+            transition: all 0.3s ease;
         }
 
         /* Timeline Logic - Sidebar Style */
@@ -112,9 +146,19 @@
             transform: scale(1.01);
         }
 
+        @media (max-width: 1024px) {
+            .bubble-slogan { 
+                width: 140px; 
+                height: 140px; 
+                font-size: 0.8rem; 
+                padding: 1rem;
+            } 
+        }
+
         @media (max-width: 850px) {
             .mobile-grid { display: grid; }
             .timeline-line-vertical { left: 19px; }
+            .bubble-slogan { display: none; } /* Hide on small screens to prevent clutter */
         }
     </style>
 </head>
@@ -152,6 +196,20 @@
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         
+        <!-- Floating Slogan Bubbles -->
+        <div class="bubble-slogan animate-float-medium" style="top: 15%; left: 5%; animation-delay: 0s;">
+            Empowering student voice & agency
+        </div>
+        <div class="bubble-slogan animate-float-slow" style="top: 10%; right: 8%; animation-delay: 1s;">
+            Fostering Self-Efficacy
+        </div>
+        <div class="bubble-slogan animate-float-fast" style="bottom: 15%; left: 8%; animation-delay: 0.5s;">
+            Upholding Key Policy Frameworks
+        </div>
+        <div class="bubble-slogan animate-float-medium" style="bottom: 20%; right: 5%; animation-delay: 1.5s;">
+            Meaningful Community Partnerships
+        </div>
+
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
             <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-1.5 mb-8 animate-fade-in-up">
                 <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
@@ -263,6 +321,11 @@
                             <p class="text-gray-700 leading-relaxed text-base">
                                 By embedding HIWS 5 into the structure of the camp, students experience wellbeing not as a separate pastoral intervention, but as an integral component of practical climate education alongside community engagement.
                             </p>
+                            
+                            <!-- Group Collaboration Image for Self Efficacy -->
+                            <div class="mt-6 img-container rounded-xl shadow-lg border border-brand-primary/20">
+                                <img src="young-workers-engaging-team-activities-outdoors_31965-658234.jpg" alt="Young workers engaging in team activities outdoors" class="w-full h-auto object-cover rounded-xl">
+                            </div>
                         </div>
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
                             <h4 class="font-bold text-brand-primary uppercase tracking-wide text-sm mb-4">Bandura's (1977) Four Sources of Self-Efficacy - Program Application</h4>
@@ -280,6 +343,48 @@
                                     <strong>4. Emotional Regulation (Across Days):</strong> Structured activities and time for feedback encourage reflection in students to support them in identifying emotional responses to learning challenges. The camp aims to reframe stress as productive effort and aligns with another HIWS principle (Allen et al., 2022) 'promote coping strategies and facilitate referrals' - supporting students to identify their personal, emotional responses.
                                 </li>
                             </ul>
+                            
+                            <!-- Diagram Insertion -->
+                            <div class="mt-8 flex flex-col items-center">
+                                <div class="relative w-full max-w-lg"> <!-- Increased max-width -->
+                                    <!-- Central Circle -->
+                                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-brand-primary text-white rounded-full w-32 h-32 flex items-center justify-center text-center font-bold shadow-lg border-4 border-white">
+                                        Self-Efficacy
+                                    </div>
+                                    
+                                    <!-- Surrounding Bubbles -->
+                                    <div class="flex justify-between w-full mb-16">
+                                        <div class="bg-brand-cream border-2 border-brand-accent text-brand-dark p-3 rounded-xl text-xs font-bold text-center w-32 shadow-md">
+                                            Performance Accomplishments
+                                        </div>
+                                        <div class="bg-brand-cream border-2 border-brand-accent text-brand-dark p-3 rounded-xl text-xs font-bold text-center w-32 shadow-md">
+                                            Vicarious Experience
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="h-32"></div> <!-- Spacer for center -->
+                                    
+                                    <div class="flex justify-between w-full mt-2">
+                                        <div class="bg-brand-cream border-2 border-brand-accent text-brand-dark p-3 rounded-xl text-xs font-bold text-center w-32 shadow-md">
+                                            Verbal Persuasion
+                                        </div>
+                                        <div class="bg-brand-cream border-2 border-brand-accent text-brand-dark p-3 rounded-xl text-xs font-bold text-center w-32 shadow-md">
+                                            Emotional Arousal
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Connecting Lines (SVG) -->
+                                    <svg class="absolute top-0 left-0 w-full h-full pointer-events-none -z-10" viewBox="0 0 512 400" preserveAspectRatio="none"> 
+                                        <!-- Lines to center -->
+                                        <line x1="80" y1="60" x2="256" y2="200" stroke="#E9C46A" stroke-width="2" />
+                                        <line x1="432" y1="60" x2="256" y2="200" stroke="#E9C46A" stroke-width="2" />
+                                        <line x1="80" y1="340" x2="256" y2="200" stroke="#E9C46A" stroke-width="2" />
+                                        <line x1="432" y1="340" x2="256" y2="200" stroke="#E9C46A" stroke-width="2" />
+                                    </svg>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-4 text-center italic">Sources of Self-Efficacy (adapted from Bandura, 1977)</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -297,6 +402,10 @@
                             <p class="text-gray-700 leading-relaxed text-base">
                                 The <a href="#timeline" class="text-link">camp's three-day structure</a> is intentionally aligned with the five FISO 2.0 core principles - Leadership, Assessment, Support & Resources, Engagement, and Teaching & Learning - to ensure student voice is embedded across policy, pedagogy and practice.
                             </p>
+                            <!-- FISO 2.0 Image Added Here -->
+                            <div class="mt-6 img-container rounded-xl shadow-lg border border-brand-primary/20">
+                                <img src="FISO-2.0.jpg" alt="FISO 2.0 Framework Diagram" class="w-full h-auto object-cover rounded-xl">
+                            </div>
                         </div>
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
                             <h4 class="font-bold text-brand-primary uppercase tracking-wide text-sm mb-4">FISO 2.0 Core Principles in Action</h4>
@@ -368,7 +477,8 @@
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
                             <h4 class="font-bold text-brand-primary uppercase tracking-wide text-sm mb-4">Program Application</h4>
                             <ul class="space-y-6 text-base text-gray-700">
-                                <li><strong>1. Indigenous Knowledge (<a href="#timeline" class="text-link">Day 1</a>):</strong> The camp begins with a partnership session led by Aboriginal Elders or community representatives, grounding sustainability education within Indigenous knowledge of land, care, and continuity. Students explore practices such as cultural burning and land management, reframing sustainability as a continuation of long-standing practice and traditions rather than a modern crisis response. This supports the culturally responsive pedagogy of the Climate, Community & Change project while fostering the Indigenous Histories Cross-Curriculum Priority (VCAA, n.d.). The program's partnerships with the Indigenous community align with Rigby et al.'s (2011) findings that Indigenous-led ecological knowledge fosters culturally grounded, ethical approaches to environmental responsibility.</li>
+                                <li><strong>1. Indigenous Knowledge (<a href="#timeline" class="text-link">Day 1</a>):</strong> The camp begins with a partnership session led by Aboriginal Elders or community representatives such as the Indigenous Education Foundation, grounding sustainability education within Indigenous knowledge of land, care, and continuity. Students explore practices such as cultural burning and land management, reframing sustainability as a continuation of long-standing practice and traditions rather than a modern crisis response. This supports the culturally responsive pedagogy of the Climate, Community & Change project while fostering the Indigenous Histories Cross-Curriculum Priority (VCAA, n.d.). The program's partnerships with the Indigenous community align with Rigby et al.'s (2011) findings that Indigenous-led ecological knowledge fosters culturally grounded, ethical approaches to environmental responsibility.</li>
+                                <img src="IEF Logo.png" alt="Indigenous Education Foundation Logo" class="w-1/2 h-auto my-3 rounded-lg mx-auto">
                                 <li><strong>2. Community Experts as Mentors (<a href="#timeline" class="text-link">Day 2</a>):</strong> Local sustainability advocates (community members, volunteers, conservationists) come to Day 2 of the camp to act as mentors during design phases of the student pitches. They offer feedback to students on the feasibility and implementation aspects of their pitch. This provides students with experience beyond the classroom in sustainability efforts and connection to community members that are passionate about sharing their knowledge about climate change and sustainability.</li>
                                 <li><strong>3. External Validation (<a href="#timeline" class="text-link">Day 3</a>):</strong> The final pitch event involves a panel with community representatives and school leaders, ensuring students feel heard by adults beyond their classroom teachers. Students present their proposals for implementation within their school, demonstrating student-led solutions informing institutional decision-making. This audience enhances accountability, motivation and therefore fosters self-efficacy (Bandura, 1977).</li>
                             </ul>
@@ -415,7 +525,7 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            <strong>Overview/Purpose:</strong> Day 1 establishes Action Committees, shared understanding and psychological safety. Students are grounded in both scientific systems thinking and Indigenous perspectives, creating a common foundation for collective learning and respectful dialogues.
+                            <strong>Purpose:</strong> Day 1 establishes Action Committees, shared understanding and psychological safety. Students are grounded in both scientific systems thinking and Indigenous perspectives, creating a common foundation for collective learning and respectful dialogues.
                         </p>
                         <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
                             <strong>Key Wellbeing & Safety Focus:</strong> Establishing group norms and emotional safety, guided facilitation to prevent overwhelm or misinformation, structured reflection to support eco-anxiety regulation.
@@ -428,6 +538,12 @@
 
                         <div id="d1-details" class="hidden mt-8 bg-brand-cream/50 p-8 rounded-2xl border-l-4 border-brand-dark animate-fade-in w-full">
                             <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-6 text-lg">Detailed Activities</h4>
+                            
+                            <!-- Image Added Above Activity Text -->
+                            <div class="img-container rounded-xl shadow-lg mb-8 max-w-4xl mx-auto">
+                                <img src="young-activists-taking-action_23-2149502783.jpg" alt="Students engaging in Climate Fresk and discussion" class="w-full h-64 object-cover rounded-xl">
+                            </div>
+
                             <div class="space-y-8">
                                 <div>
                                     <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
@@ -495,7 +611,7 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            <strong>Overview/Purpose:</strong> The "messy middle" of innovation. Students engage in "problem-focused coping" (Ojala, 2012) by designing a solution relevant to their immediate environment without digital aid.
+                            <strong>Purpose:</strong> The "messy middle" of innovation. Students engage in "problem-focused coping" (Ojala, 2012) by designing a solution relevant to their immediate environment without digital aid.
                         </p>
                         <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
                             <strong>Key Wellbeing & Safety Focus:</strong> Nature immersion to reduce stress and cognitive overload, collaborative problem solving to counter feelings of helplessness, teacher facilitation to support group dynamics and inclusion.
@@ -543,7 +659,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="md:w-2/5">
+                                <div class="md:w-2/5 flex flex-col gap-4">
                                     <!-- Image: Hiking -->
                                     <div class="img-container rounded-xl shadow-lg h-full">
                                         <img src="adventure-travel-tourism-hike-people-concept-three-girls-forest.jpg" 
@@ -572,7 +688,7 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            <strong>Overview/Purpose:</strong> The "Mastery Experience." Day 3 validates student learning by positioning it as meaningful, real, and valued. Students experience their ideas being taken seriously by school leadership and community representatives.
+                            <strong>Purpose:</strong> The "Mastery Experience." Day 3 validates student learning by positioning it as meaningful, real, and valued. Students experience their ideas being taken seriously by school leadership and community representatives.
                         </p>
                         <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
                             <strong>Key Wellbeing & Safety Focus:</strong> Confidence-building through supported presentation, validation of effort and voice, clear pathways for follow-up action to avoid "tokenism".
@@ -588,7 +704,7 @@
                             <div class="img-container rounded-xl shadow-lg mb-6 max-w-3xl mx-auto">
                                 <img src="man-gives-high-five-woman-forest.jpg" 
                                      alt="Mentors and students celebrating a successful pitch"
-                                     class="w-full h-auto object-cover rounded-xl max-h-[400px]">
+                                     class="w-full h-auto object-cover rounded-xl max-h-[300px]">
                             </div>
 
                             <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-6 text-lg">Detailed Activities</h4>
@@ -756,8 +872,13 @@
     </section>
 
     <!-- Culminating Task Brief -->
-    <section id="culminating" class="py-24 bg-brand-dark text-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+    <section id="culminating" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        
+        <div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none">
+             <img src="people-writing-drawing-protest-banners_23-2149343492(1).jpg" alt="Students writing protest banners and taking action" class="h-full w-full object-cover">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <h2 class="font-serif text-3xl font-bold mb-6">Culminating Task: Pitching for the Future</h2>
             <div class="inline-block bg-brand-accent/20 border border-brand-accent rounded-full px-4 py-1 text-sm font-bold text-brand-accent mb-8">The "Mastery Experience"</div>
             
@@ -826,7 +947,7 @@
                     <h4 class="font-serif text-xl font-bold text-brand-dark">AI Use Declaration</h4>
                 </div>
                 <div class="text-gray-600 text-sm leading-relaxed italic">
-                    We acknowledge the use of Gemini 3 Pro in the creation of this website. Specifically, Gemini was used to draft initial ideas for webpage layout. All text was then edited and replaced with our own written work. Gemini was then prompted to format the website based on our design specifications until the webpage was complete. All content has been reviewed and verified by the authors to ensure accuracy and authenticity. This is a true representation of our abilities.
+                    We acknowledge the use of Gemini 3 Pro and ChatGPT in the creation of this website. Specifically, Gemini was used to draft initial ideas for webpage layout. All text was then edited and replaced with our own written work. Gemini was then prompted to format the website based on our design specifications until the webpage was complete. ChatGPT was used in this assignment to support drafting, editing, and improve academic tone of written content. All content has been reviewed and verified by the authors to ensure accuracy and authenticity. This is a true representation of our abilities.
                 </div>
             </div>
 
