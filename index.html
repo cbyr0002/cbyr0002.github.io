@@ -90,88 +90,29 @@
             z-index: 0;
         }
         
-        /* Stable Orbit System */
-        .orbit-container {
+        /* Link styling for internal navigation */
+        .text-link {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: rgba(42, 157, 143, 0.5);
+            transition: all 0.2s;
+        }
+        .text-link:hover {
+            color: #2A9D8F;
+            text-decoration-color: #2A9D8F;
+        }
+
+        /* Image Styling */
+        .img-container {
             position: relative;
-            width: 700px;
-            height: 700px;
-            margin: 0 auto;
-        }
-        
-        .orbit-track {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border: 1px dashed #2A9D8F;
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        .orbit-item {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: #F4F1DE;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 10;
-            border: 2px solid #2A9D8F;
-            color: #264653;
-        }
-
-        .orbit-item:hover {
-            transform: scale(1.1);
-            border-color: #E9C46A;
-            background: white;
-        }
-
-        .orbit-item.active {
-            background: #264653;
-            color: #E9C46A;
-            border-color: #E9C46A;
-            transform: scale(1.15);
-            box-shadow: 0 8px 20px rgba(38, 70, 83, 0.3);
-        }
-
-        /* 4 Planets Positioning (Removed Humanities) */
-        .planet-1 { top: 0; left: 50%; transform: translate(-50%, -50%); } /* Top */
-        .planet-2 { top: 50%; right: -5%; transform: translate(-50%, -50%); } /* Right */
-        .planet-3 { bottom: 0; left: 50%; transform: translate(-50%, 50%); } /* Bottom */
-        .planet-4 { top: 50%; left: -5%; transform: translate(50%, -50%); } /* Left */
-
-        .planet-1:hover, .planet-1.active { transform: translate(-50%, -50%) scale(1.15); }
-        .planet-2:hover, .planet-2.active { transform: translate(-50%, -50%) scale(1.15); }
-        .planet-3:hover, .planet-3.active { transform: translate(-50%, 50%) scale(1.15); }
-        .planet-4:hover, .planet-4.active { transform: translate(50%, -50%) scale(1.15); }
-
-        .core-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            z-index: 5;
+            overflow: hidden;
             transition: all 0.3s ease;
-            border: 4px solid #F4F1DE;
+        }
+        .img-container:hover {
+            transform: scale(1.01);
         }
 
         @media (max-width: 850px) {
-            .orbit-container { display: none; } 
             .mobile-grid { display: grid; }
             .timeline-line-vertical { left: 19px; }
         }
@@ -220,7 +161,7 @@
                 Climate, Community <br/>& Change
             </h1>
             <p class="text-lg md:text-xl text-brand-soft/90 mb-10 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
-                A comprehensive 3-Day Camp Intensive designed to foster student self-efficacy. We move students from the paralysis of "doom narratives" to active hope through a culminating <span class="text-white font-medium">Conservation, Energy, or Waste Pitch.</span>
+                A comprehensive 3-Day Camp Intensive designed to foster student self-efficacy. We move students from the paralysis of "doom narratives" to active hope through a culminating Conservation, Energy, or Waste <a href="#culminating" class="text-brand-accent hover:underline">Pitch</a>.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
                 <a href="#timeline" class="bg-brand-accent text-brand-dark hover:bg-white font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:scale-105 cursor-pointer">
@@ -239,25 +180,25 @@
                 <div class="w-24 h-1 bg-brand-accent mx-auto rounded-full"></div>
             </div>
             
-            <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed mb-16 space-y-4">
-                <p>
-                    The Climate, Community & Change project centres on current educational policy and wellbeing research that recognises self-efficacy, student voice, and community partnerships as essential to meaningful learning and wellbeing outcomes. Our planning prioritises student voice and community partnerships, while our central pedagogical lens is the Department of Education's <strong>High Impact Wellbeing Strategy (HIWS 5): Foster Student Self-Efficacy</strong> (Department of Education and training [DET], n.d.). This framework is especially critical in addressing feelings of climate-related distress among young people, where feelings of helplessness and disengagement are increasingly prevalent (Hickman et al., 2021).
-                </p>
-                <p>
-                    Fostering student self-efficacy (HIWS 5) refers to students' beliefs in their capacity to successfully influence outcomes through their actions (DET, 2022). Self-efficacy is linked to motivation, persistence and wellbeing (Bandura, 1977). Performance accomplishments in the Climate, Community & Change project aim to increase motivation, which in turn leads to sustained effort and persistence (Bandura, 1977). This approach to enhance self-efficacy can help reconceptualise students' perceptions of climate change, promoting adaptive coping and positive behavioural responses. When students experience success in authentic, socially purposeful learning contexts, they are more likely to shift from avoidance and disengagement toward hopeful, problem-focused action (Ojala, 2012).
-                </p>
-                <p>
-                    Ojala (2012) holds that external factors such as social influence from peers tend to motivate pro-environmental behaviours in young people. This program's camp intentionally embeds these influences through structured group work, collaborative brainstorming and strategies to enhance participation such as the 'Walking Meeting'. This provides guided opportunities to strengthen engagement while simultaneously activating HIWS 5 by fostering self-efficacy through collective problem-solving and practical action. Teacher directed and scaffolded 'mastery experiences' - a core component of Bandura's (1977) self-efficacy theory - are intentionally designed to guide students from eco-anxiety to agency.
-                </p>
-                <p>
-                    This section outlines the policy and research foundations that inform our approach across three interconnected domains:
-                    <ol class="list-decimal ml-6 mt-2">
-                        <li>HIWS 5 and Self-Efficacy</li>
-                        <li>Student Voice and Agency</li>
-                        <li>Community Partnerships</li>
-                    </ol>
-                    Together, these frameworks ensure the project reflects best-practice wellbeing pedagogy while positioning students as capable contributors to sustainability action among their community beyond the classroom.
-                </p>
+            <div class="flex flex-col gap-12 mb-16 items-center">
+                <!-- Image: Students Collaborating -->
+                <div class="w-full max-w-4xl img-container rounded-2xl shadow-lg">
+                    <img src="cheerful-group-multiethnic-students-studying-outdoors.jpg" 
+                         alt="Cheerful diverse group of students collaborating outdoors"
+                         class="w-full h-auto object-cover rounded-2xl max-h-[500px]">
+                </div>
+
+                <div class="w-full max-w-4xl text-lg text-gray-700 leading-relaxed space-y-4">
+                    <p>
+                        The Climate, Community & Change project centres on current educational policy and wellbeing research that recognises self-efficacy, student voice, and community partnerships as essential to meaningful learning and wellbeing outcomes. Our planning prioritises student voice and community partnerships, while our central pedagogical lens is the Department of Education's <strong>High Impact Wellbeing Strategy (HIWS 5): Foster Student Self-Efficacy</strong> (Department of Education and Training [DET], n.d.). This framework is especially critical in addressing feelings of climate-related distress among young people, where feelings of helplessness and disengagement are increasingly prevalent (Hickman et al., 2021).
+                    </p>
+                    <p>
+                        Fostering student self-efficacy (HIWS 5) refers to students' beliefs in their capacity to successfully influence outcomes through their actions (Allen et al., 2022). Self-efficacy is linked to motivation, persistence and wellbeing (Bandura, 1977). Performance accomplishments in the Climate, Community & Change project aim to increase motivation, which in turn leads to sustained effort and persistence (Bandura, 1977). This approach to enhance self-efficacy can help reconceptualise students' perceptions of climate change, promoting adaptive coping and positive behavioural responses. When students experience success in authentic, socially purposeful learning contexts, they are more likely to shift from avoidance and disengagement toward hopeful, problem-focused action (Ojala, 2012). Ojala (2012) holds that external factors such as social influence from peers tend to motivate pro-environmental behaviours in young people. This program's <a href="#timeline" class="text-link">camp</a> intentionally embeds these influences through structured group work, collaborative brainstorming and strategies to enhance participation such as the 'Walking Meeting'. This provides guided opportunities to strengthen engagement while simultaneously activating HIWS 5 by fostering self-efficacy through collective problem-solving and practical action. Teacher directed and scaffolded 'mastery experiences' - a core component of Bandura's (1977) self-efficacy theory - are intentionally designed to guide students from eco-anxiety to agency.
+                    </p>
+                    <p>
+                        This section outlines the policy and research foundations that inform our approach across three interconnected domains. Together, these frameworks ensure the project reflects best-practice wellbeing pedagogy while positioning students as capable contributors to sustainability action among their community beyond the classroom.
+                    </p>
+                </div>
             </div>
 
             <!-- Tile Navigation -->
@@ -295,48 +236,48 @@
                     <div class="flex flex-col md:flex-row gap-12">
                         <div class="md:w-1/2 space-y-4">
                             <h3 class="font-serif text-3xl font-bold text-brand-dark">HIWS-5: Operationalising Self-Efficacy</h3>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 The Department of Education's High Impact Wellbeing Strategies (HIWS) identifies Strategy 5: Foster Student Self-Efficacy as essential for positive wellbeing, resilience, and learning engagement (DET, n.d.). HIWS 5 emphasises the importance of creating learning environments where students can develop confidence in their abilities, experience success through effort, and receive constructive feedback (DET, 2021). These principles closely align with Bandura's (1977) self-efficacy theory as a foundational mechanism underpinning agency, emotional regulation and behavioural persistence.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 Bandura (1977) identifies four sources of self-efficacy, all of which are intentionally fostered within the Climate, Community & Change program:
-                                <ol class="list-decimal ml-6">
-                                    <li>Mastery experiences (performance accomplishments - successfully completing tasks),</li>
-                                    <li>Vicarious experiences (seeing peers succeed),</li>
-                                    <li>Verbal persuasion (encouragement and feedback), and</li>
-                                    <li>Physiological and emotional states (managing stress responses)</li>
+                                <ol class="list-decimal ml-6 mt-2 space-y-2 text-base text-gray-700">
+                                    <li class="pl-2">Mastery experiences (performance accomplishments - successfully completing tasks),</li>
+                                    <li class="pl-2">Vicarious experiences (seeing peers succeed),</li>
+                                    <li class="pl-2">Verbal persuasion (encouragement and feedback), and</li>
+                                    <li class="pl-2">Physiological and emotional states (managing stress responses)</li>
                                 </ol>
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 Of these four sources of self-efficacy (Bandura, 1977), two are central for the camp in this program: Mastery experiences (succeeding at a task) and verbal persuasion (constructive feedback). Although all four aspects are involved to some degree, these two sources are the most powerful and controllable in a camp context and therefore form the pedagogical core of this program's design.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 In the context of climate education and eco-anxiety, fostering student self-efficacy is particularly critical. Research indicates that young people are experiencing increased levels of distress and helplessness in response to global environmental crises (Hickman et al., 2021). Many young people report feeling powerless to effect meaningful change, leading to disengagement, emotional withdrawal, or avoidance coping strategies (Ojala, 2012). Without structured opportunities like this program to translate concern into action, sustainability education risks becoming emotionally overwhelming rather than empowering.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 HIWS 5 (DET, n.d.) directly addresses the challenge of climate-related emotional overwhelm by positioning wellbeing not as the absence of distress, but as an opportunity to uphold agency, competence and hope. When students are supported by their teachers to succeed in complex, authentic tasks, they develop a sense of control over outcomes along with increased optimism, and greater willingness to engage in future challenges (DET, 2021; Bandura, 1997). This aligns with contemporary wellbeing frameworks such as Self-Determination Theory (SDT) that emphasises competence, autonomy and relatedness as core psychological needs underpinning motivation and wellbeing (Deci et al., 2017). SDT explains why students benefit from autonomy-supportive learning environments (Reeve, 2002), as these contexts strengthen motivation, engagement and self-efficacy through enhanced perceptions of competence.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 In light of the literature, this program's camp reframes climate education from a "doom and gloom" based narrative to a strengths-based approach of problem-solving, innovation and peer action. This program posits social-emotional wellbeing as an important focus for young people (Pozas et al., 2021) and aims to support student outcomes at check-in points throughout the camp. The program provides opportunities for students to identify what they can influence in their school and community context, rather than solely focusing on what they cannot control.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 By embedding HIWS 5 into the structure of the camp, students experience wellbeing not as a separate pastoral intervention, but as an integral component of practical climate education alongside community engagement.
                             </p>
                         </div>
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
                             <h4 class="font-bold text-brand-primary uppercase tracking-wide text-sm mb-4">Bandura's (1977) Four Sources of Self-Efficacy - Program Application</h4>
-                            <ul class="space-y-4 text-sm text-gray-700">
+                            <ul class="space-y-6 text-base text-gray-700">
                                 <li>
-                                    <strong>1. Mastery Experience (Day 3):</strong> The project culminates in a high-stakes sustainability pitch to an audience of peers and a panel of key stakeholders (Principal, School Council President, Student Leaders). Students overcome the challenge of limited resources and time to create a viable solution, proving to themselves that they are capable agents of change. This task functions as a structured mastery experience, allowing students to experience accomplishment and visible impact as a result. The task frames success as persistence, ability to problem-solve and to partake in collaborative growth with peers. These experiences strengthen students' beliefs that they can influence outcomes in complex real-world contexts beyond the classroom.
+                                    <strong>1. Mastery Experience (<a href="#timeline" class="text-link">Day 3</a>):</strong> The project culminates in a high-stakes sustainability pitch to an audience of peers and a panel of key stakeholders (Principal, School Council President, Student Leaders). Students overcome the challenge of limited resources and time to create a viable solution, proving to themselves that they are capable agents of change. This task functions as a structured mastery experience, allowing students to experience accomplishment and visible impact as a result. The task frames success as persistence, ability to problem-solve and to partake in collaborative growth with peers. These experiences strengthen students' beliefs that they can influence outcomes in complex real-world contexts beyond the classroom.
                                 </li>
                                 <li>
-                                    <strong>2. Verbal Persuasion (Day 2):</strong> Teachers act as consultants, providing specific, formative feedback during the "Make" session. Feedback from teachers on the camp reinforce effort, strategy, and progress rather than fixed-ability. This verbal persuasion thus encourages students to persevere through the design challenges. The verbal persuasion component facilitates development in HIWS 5 (DET, 2022) through the provision of growth-oriented feedback to encourage students to try their best.
+                                    <strong>2. Verbal Persuasion (<a href="#timeline" class="text-link">Day 2</a>):</strong> Teachers act as consultants, providing specific, formative feedback during the "Make" session. Feedback from teachers on the camp reinforce effort, strategy, and progress rather than fixed-ability. This verbal persuasion thus encourages students to persevere through the design challenges. The verbal persuasion component facilitates development in HIWS 5 (Allen et al., 2022) through the provision of growth-oriented feedback to encourage students to try their best.
                                 </li>
                                 <li>
                                     <strong>3. Vicarious Experience (Across Days):</strong> Students observe peers successfully navigating challenges, particularly during collaborative problem-solving sessions, additional activities and pitch practice sessions. These shared successes function as vicarious efficacy experiences to reinforce collective confidence and reduce fear of failure.
                                 </li>
                                 <li>
-                                    <strong>4. Emotional Regulation (Across Days):</strong> Structured activities and time for feedback encourage reflection in students to support them in identifying emotional responses to learning challenges. The camp aims to reframe stress as productive effort and aligns with another HIWS principle (DET, 2022) 'promote coping strategies and facilitate referrals' - supporting students to identify their personal, emotional responses.
+                                    <strong>4. Emotional Regulation (Across Days):</strong> Structured activities and time for feedback encourage reflection in students to support them in identifying emotional responses to learning challenges. The camp aims to reframe stress as productive effort and aligns with another HIWS principle (Allen et al., 2022) 'promote coping strategies and facilitate referrals' - supporting students to identify their personal, emotional responses.
                                 </li>
                             </ul>
                         </div>
@@ -347,14 +288,14 @@
                     <div class="flex flex-col md:flex-row gap-12">
                         <div class="md:w-1/2 space-y-4">
                             <h3 class="font-serif text-3xl font-bold text-brand-dark">Empowering Genuine Agency (FISO 2.0)</h3>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 The Framework for Improving Student Outcomes 2.0 (FISO 2.0) prioritizes "Empowering Student Voice and Agency" as a core driver of engagement. It recognizes that students learn best when they are actively involved in shaping their learning experiences and goals (DET, 2021). The five core elements of FISO 2.0 are leadership, assessment, support & resources, engagement, teaching & learning (DET, 2021). This program upholds all five elements of the framework, enhancing wellbeing and learning to enable students to become "active, informed members of just and sustainable communities" (DET, 2021). The camp operationalises student voice across the five core principles, ensuring agency is embedded throughout the learning design.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 This approach to uphold student voice and agency is critical in a sustainability education context, where young people frequently report feelings of climate distress and mistrust when adults appear unresponsive to environmental challenges (Hickman et al., 2021). By the program's positioning of students as co-designers, problem-solvers and decision-makers, the camp aims to counter disengagement and feelings of helplessness while strengthening self-efficacy and wellbeing (Bandura, 1977; Deci et al., 2017).
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
-                                The camp's three-day structure is intentionally aligned with the five FISO 2.0 core principles - Leadership, Assessment, Support & Resources, Engagement, and Teaching & Learning - to ensure student voice is embedded across policy, pedagogy and practice.
+                            <p class="text-gray-700 leading-relaxed text-base">
+                                The <a href="#timeline" class="text-link">camp's three-day structure</a> is intentionally aligned with the five FISO 2.0 core principles - Leadership, Assessment, Support & Resources, Engagement, and Teaching & Learning - to ensure student voice is embedded across policy, pedagogy and practice.
                             </p>
                         </div>
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
@@ -369,7 +310,7 @@
                             </div>
                             
                             <!-- FISO Content Panes -->
-                            <div id="fiso-leadership" class="fiso-pane text-sm text-gray-700 space-y-2 animate-fade-in">
+                            <div id="fiso-leadership" class="fiso-pane text-base text-gray-700 space-y-4 animate-fade-in">
                                 <p>FISO 2.0 (DET, 2021) emphasises leadership that activates student voice and agency to support participation in their own learning and in the school community. Alongside student leadership, positive leadership from teachers and management is required to implement this program effectively. The camp provides an environment to empower learners, cultivating trust, innovation and shared accountability among peers.</p>
                                 <p>In terms of student opportunities for leadership in the program, student teams take responsibility for problem-solving, directing pathways for inquiry, and presenting their ideas to peers and a panel in effective ways.</p>
                                 <p>Student interactions with school leadership (teachers, camp leaders, community panel), provides social validation and opportunities for them to develop their own civic leadership skills. This reinforces the students' roles as contributors to community decision-making on sustainability concerns.</p>
@@ -377,28 +318,28 @@
                                 <p>The program structure supports positive student outcomes by providing students with opportunities to engage directly with camp leaders and community partners, receiving authentic feedback that models effective leadership and strengthens their own leadership capabilities.</p>
                             </div>
 
-                            <div id="fiso-assessment" class="fiso-pane hidden text-sm text-gray-700 space-y-2 animate-fade-in">
+                            <div id="fiso-assessment" class="fiso-pane hidden text-base text-gray-700 space-y-4 animate-fade-in">
                                 <p>FISO 2.0 emphasises assessment as the use of evidence and data to assess student learning, attainment and wellbeing strategies (DET, 2021). The program adopts a non-formal approach to assessment, prioritising formative feedback throughout the camp.</p>
-                                <p>It offers opportunities for student-led feedback during reflection and peer review time while completing the culminating task. The program incorporates a summative assessment with the final pitch to evaluate student learning, problem-solving and understanding in a unique environment beyond the classroom.</p>
+                                <p>It offers opportunities for student-led feedback during reflection and peer review time while completing the culminating task. The program incorporates a summative assessment with the <a href="#culminating" class="text-link">final pitch</a> to evaluate student learning, problem-solving and understanding in a unique environment beyond the classroom.</p>
                                 <p>Formative and summative assessments are structured throughout the camp as mastery experiences to foster self-efficacy and uphold student voice and agency.</p>
                             </div>
 
-                            <div id="fiso-support" class="fiso-pane hidden text-sm text-gray-700 space-y-2 animate-fade-in">
+                            <div id="fiso-support" class="fiso-pane hidden text-base text-gray-700 space-y-4 animate-fade-in">
                                 <p>FISO 2.0 highlights the importance of having available support structures and resources to enable students to engage meaningfully to achieve high levels of learning growth (DET, 2021). Within the camp, students are supported through scaffolded inquiry, mentorship and guidance from leaders and teachers, culturally responsive content and emotionally safe learning environments.</p>
-                                <p>On Day 1, Indigenous community partners provide cultural and ecological knowledge contextual to the camp grounds. This ensures students' learning is contextually meaningful to climate education while being culturally responsive.</p>
-                                <p>On Day 2, teachers act as consultants and offer targeted guidance to teams while using strategic questioning to prompt students further. This fosters student voice and agency as this approach to teacher guidance offers support to strengthen self-efficacy rather than replacing this with directive instruction.</p>
-                                <p>On Day 3, community members on the panel provide validation and feedback, reinforcing confidence through the encouragement of student voice and agency.</p>
+                                <p>On <a href="#timeline" class="text-link">Day 1</a>, Indigenous community partners provide cultural and ecological knowledge contextual to the camp grounds. This ensures students' learning is contextually meaningful to climate education while being culturally responsive.</p>
+                                <p>On <a href="#timeline" class="text-link">Day 2</a>, teachers act as consultants and offer targeted guidance to teams while using strategic questioning to prompt students further. This fosters student voice and agency as this approach to teacher guidance offers support to strengthen self-efficacy rather than replacing this with directive instruction.</p>
+                                <p>On <a href="#timeline" class="text-link">Day 3</a>, community members on the panel provide validation and feedback, reinforcing confidence through the encouragement of student voice and agency.</p>
                                 <p>The support structures in this program strengthen student voice and agency by ensuring that challenges are met with guidance in a productive, inclusive camp environment. This aligns with HIWS 5 where students are provided with feedback and encouraged to persist, as well as HIWS 7, allowing students to develop strategies to respond to both personal and sustainability challenges.</p>
                             </div>
 
-                            <div id="fiso-engagement" class="fiso-pane hidden text-sm text-gray-700 space-y-2 animate-fade-in">
+                            <div id="fiso-engagement" class="fiso-pane hidden text-base text-gray-700 space-y-4 animate-fade-in">
                                 <p>The camp in this program is intentionally designed to increase engagement by embedding authentic, real-world experiences, problems, and audiences. FISO 2.0 (DET, 2021) encourages strong relationships with community partnerships, which this camp fosters to increase student engagement and participation.</p>
                                 <p>The other dimension of engagement under FISO 2.0 prioritises student voice and agency (DET, 2021). Through the culminating project and activities on camp, the students are supported to feel a sense of belonging in their school community.</p>
                                 <p>Targeting self-efficacy as a priority HIWS in this project helps foster student voice and agency by positioning students as active contributors rather than passive learners. Strategies to engage students in this way reinforce a sense of competence and impact (Bandura, 1977), and in turn builds engagement.</p>
                             </div>
 
-                            <div id="fiso-teaching" class="fiso-pane hidden text-sm text-gray-700 space-y-2 animate-fade-in">
-                                <p>FISO 2.0 dimensions of teaching and learning are based on the Victorian Curriculum which our program aligns with. The program integrates the Science Year 10 curriculum (VCAA, n.d.) to use subject-specific strategies to ensure effective learning throughout the camp.</p>
+                            <div id="fiso-teaching" class="fiso-pane hidden text-base text-gray-700 space-y-4 animate-fade-in">
+                                <p>FISO 2.0 dimensions of teaching and learning are based on the Victorian Curriculum which our program aligns with. The program integrates the <a href="#curriculum" class="text-link">Science Year 10 curriculum</a> (VCAA, n.d.) to use subject-specific strategies to ensure effective learning throughout the camp.</p>
                                 <p>Personal and social capability as well as critical and creative thinking (VCAA, n.d.) are targeted throughout the program, adopting a pedagogical approach where students generate knowledge through investigation, dialogue and application with their peers.</p>
                                 <p>Cross curriculum priorities (Sustainability and Indigenous Histories) are a key focus throughout this program, with engagement with Indigenous ecological knowledge and sustainability problem solving.</p>
                                 <p>Across the three-day camp, the five FISO 2.0 (DET, 2021) core principles operate together to embed student voice and agency within leadership, assessment, support, engagement and pedagogy. This strategic alignment with the FISO 2.0 framework ensures that student agency is not symbolic but enacted through policy-informed practice that has guided the development of this program.</p>
@@ -411,27 +352,27 @@
                     <div class="flex flex-col md:flex-row gap-12">
                         <div class="md:w-1/2 space-y-4">
                             <h3 class="font-serif text-3xl font-bold text-brand-dark">The Power of Partnerships</h3>
-                            <p class="text-gray-700 leading-relaxed">
-                                Schools cannot address the complex, multifaceted crisis of climate change in isolation. The Ottawa Charter for Health Promotion (1986) emphasises "Strengthening Community Action" as a core strategy for creating supportive environments that promote wellbeing. This program recognises a whole-school and whole-community approach, acknowledging the importance of the broader community in sharing valuable knowledge and steps for action in climate education. Authentic partnerships validate student concerns by showing them that the wider community is engaged. Victorian education policy (DET, 2022) also acknowledges the importance of partnerships with families, communities, services, and cultural organisations as an essential component to student wellbeing and outcomes.
+                            <p class="text-gray-700 leading-relaxed text-base">
+                                Schools cannot address the complex, multifaceted crisis of climate change in isolation. The Ottawa Charter for Health Promotion (1986) emphasises "Strengthening Community Action" as a core strategy for creating supportive environments that promote wellbeing. This program recognises a whole-school and whole-community approach, acknowledging the importance of the broader community in sharing valuable knowledge and steps for action in climate education. Authentic partnerships validate student concerns by showing them that the wider community is engaged. Victorian education policy (Allen et al., 2022) also acknowledges the importance of partnerships with families, communities, services, and cultural organisations as an essential component to student wellbeing and outcomes.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 The community partnerships in this program intend to extend learning beyond the classroom and provide students with further opportunities to connect content knowledge to lived experiences and leaders from the community. This means that students will not only learn about sustainability from civic engagement, they will participate in it.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 From a wellbeing perspective, community partnerships also enhance students' sense of belonging, purpose and validation. They offer a major aspect of learning which is learned behaviour developed through modelling (Bandura, 1977). By seeing community members participating in sustainable practice on camp, they can learn observationally and make self-corrective adjustments based on their own sustainability knowledge. It is important for students to see adults other than their teachers (including Elders, environmental advocates, school council and community members) take climate concerns seriously, they observe numerous examples of positive action. This external validation helps counter feelings of institutional betrayal (Hickman et al., 2021) which young people may experience when engaging in climate education.
                             </p>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed text-base">
                                 This project therefore embeds community partnerships as a valuable, structural component of its learning design and creates an impactful environment for students.
                             </p>
                         </div>
                         <div class="md:w-1/2 bg-white p-8 rounded-2xl border border-brand-primary/20">
                             <h4 class="font-bold text-brand-primary uppercase tracking-wide text-sm mb-4">Program Application</h4>
-                            <ul class="space-y-4 text-sm text-gray-700">
-                                <li><strong>1. Indigenous Knowledge (Day 1):</strong> The camp begins with a partnership session led by Aboriginal Elders or community representatives, grounding sustainability education within Indigenous knowledge of land, care, and continuity. Students explore practices such as cultural burning and land management, reframing sustainability as a continuation of long-standing practice and traditions rather than a modern crisis response. This supports the culturally responsive pedagogy of the Climate, Community & Change project while fostering the Indigenous Histories Cross-Curriculum Priority (VCAA, n.d.). This fosters respect for Indigenous knowledge systems and ecology in students as they participate in examples in the real-world.</li>
-                                <li><strong>2. Community Experts as Mentors (Day 2):</strong> Local sustainability advocates (community members, volunteers, conservationists) come to Day 2 of the camp to act as mentors during design phases of the student pitches. They offer feedback to students on the feasibility and implementation aspects of their pitch. This provides students with experience beyond the classroom in sustainability efforts and connection to community members that are passionate about sharing their knowledge about climate change and sustainability.</li>
-                                <li><strong>3. External Validation (Day 3):</strong> The final pitch event involves a panel with community representatives and school leaders, ensuring students feel heard by adults beyond their classroom teachers. Students present their proposals for implementation within their school, demonstrating student-led solutions informing institutional decision-making. This audience enhances accountability, motivation and therefore fosters self-efficacy (Bandura, 1977).</li>
+                            <ul class="space-y-6 text-base text-gray-700">
+                                <li><strong>1. Indigenous Knowledge (<a href="#timeline" class="text-link">Day 1</a>):</strong> The camp begins with a partnership session led by Aboriginal Elders or community representatives, grounding sustainability education within Indigenous knowledge of land, care, and continuity. Students explore practices such as cultural burning and land management, reframing sustainability as a continuation of long-standing practice and traditions rather than a modern crisis response. This supports the culturally responsive pedagogy of the Climate, Community & Change project while fostering the Indigenous Histories Cross-Curriculum Priority (VCAA, n.d.). The program's partnerships with the Indigenous community align with Rigby et al.'s (2011) findings that Indigenous-led ecological knowledge fosters culturally grounded, ethical approaches to environmental responsibility.</li>
+                                <li><strong>2. Community Experts as Mentors (<a href="#timeline" class="text-link">Day 2</a>):</strong> Local sustainability advocates (community members, volunteers, conservationists) come to Day 2 of the camp to act as mentors during design phases of the student pitches. They offer feedback to students on the feasibility and implementation aspects of their pitch. This provides students with experience beyond the classroom in sustainability efforts and connection to community members that are passionate about sharing their knowledge about climate change and sustainability.</li>
+                                <li><strong>3. External Validation (<a href="#timeline" class="text-link">Day 3</a>):</strong> The final pitch event involves a panel with community representatives and school leaders, ensuring students feel heard by adults beyond their classroom teachers. Students present their proposals for implementation within their school, demonstrating student-led solutions informing institutional decision-making. This audience enhances accountability, motivation and therefore fosters self-efficacy (Bandura, 1977).</li>
                             </ul>
-                            <p class="text-sm text-gray-700 mt-4">
+                            <p class="text-base text-gray-700 mt-6 leading-relaxed">
                                 Through these community partnerships, students experience learning as a collective process that involves collaboration within a community context. This reinforces sustainability practice as an ongoing process rather than a one-off learning experience in a classroom. Community engagement strengthens wellbeing and learning outcomes in this program, providing students with valuable experiences in a different learning environment. Opportunities to build communication skills through community partnerships and seek feedback strengthen student voice and agency, foster HIWS 5 (self-efficacy), and align closely with the project's pedagogical framework.
                             </p>
                         </div>
@@ -446,9 +387,12 @@
     <section id="timeline" class="py-24 bg-white relative overflow-hidden border-t border-brand-cream">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">Camp Intensive Overview</span>
+                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs"><p>Activity Sequence | Approx. 20+ Hours | Target Cohort: Year 10</p>
+                    <p>Focus: Climate literacy, eco-anxiety regulation, student agency, community connection</p></span>
                 <h2 class="font-serif text-4xl font-bold text-brand-dark mt-2">3-Day Camp Schedule</h2>
-                <p class="text-gray-500 mt-2">Activity Sequence | Duration: Approx. 20+ Hours of Activity Time</p>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4 text-lg leading-relaxed">
+                    The Climate, Community & Change Camp is the culmination of our whole-school approach. It is intentionally designed to move students from knowledge, to connection, to collective action, while embedding <a href="#pedagogy" class="text-link">High Impact Wellbeing Strategies (HIWS)</a>, student voice, and community partnerships across all experiences. Each day balances cognitive challenge, emotional regulation, and physical engagement, ensuring students are supported academically, socially, and psychologically.
+                </p>
             </div>
 
             <!-- Vertical Timeline Wrapper -->
@@ -471,7 +415,10 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            Establishing the "team." Day 1 focuses on grounding the learning in scientific systems thinking and Indigenous cultural history.
+                            <strong>Overview/Purpose:</strong> Day 1 establishes Action Committees, shared understanding and psychological safety. Students are grounded in both scientific systems thinking and Indigenous perspectives, creating a common foundation for collective learning and respectful dialogues.
+                        </p>
+                        <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
+                            <strong>Key Wellbeing & Safety Focus:</strong> Establishing group norms and emotional safety, guided facilitation to prevent overwhelm or misinformation, structured reflection to support eco-anxiety regulation.
                         </p>
                         
                         <button onclick="toggleDetails('d1-details', this)" class="inline-flex items-center gap-2 bg-white border border-brand-dark/20 px-6 py-2 rounded-lg text-brand-dark font-bold text-sm hover:bg-brand-dark hover:text-white transition-all shadow-sm">
@@ -480,34 +427,52 @@
                         </button>
 
                         <div id="d1-details" class="hidden mt-8 bg-brand-cream/50 p-8 rounded-2xl border-l-4 border-brand-dark animate-fade-in w-full">
-                            <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-4 text-lg">Detailed Schedule Breakdown</h4>
-                            <div class="space-y-6">
+                            <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-6 text-lg">Detailed Activities</h4>
+                            <div class="space-y-8">
                                 <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="book-open" class="w-4 h-4 text-brand-primary"></i> 
-                                        <span>Activity 1: The "Climate Fresk" Workshop (2 Hours)</span>
+                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                        <i data-lucide="book-open" class="w-5 h-5 text-brand-primary"></i> 
+                                        <span>Activity 1: Climate Fresk Workshop (2 Hours)</span>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        A collaborative serious game where students arrange cards representing components of the climate system (IPCC data) into cause-and-effect relationships [Links to VC2S10U10]. This establishes a shared scientific baseline and visualizes the systemic nature of the problem, preventing misinformation.
-                                    </p>
+                                    <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                        A facilitated, collaborative serious game where students work in small groups to map cause-and-effect relationships within the climate system using IPCC-aligned data.
+                                        <ul class="list-disc ml-6 text-gray-700 text-base mt-3 space-y-2 pl-4">
+                                            <li>Builds <a href="#curriculum" class="text-link">climate literacy</a> and systems thinking</li>
+                                            <li>Prevents misinformation through shared, evidence-based understanding</li>
+                                            <li>Encourages cooperative learning and peer discussion</li>
+                                        </ul>
+                                        <div class="mt-3 text-sm font-medium text-brand-dark/80">Curriculum link: VC2S10U10</div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="flame" class="w-4 h-4 text-brand-primary"></i> 
+                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                        <i data-lucide="flame" class="w-5 h-5 text-brand-primary"></i> 
                                         <span>Activity 2: "Caring for Country" Walk (2 Hours)</span>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        Partnership Activity: A guided on-Country experience led by a local Koorie Engagement Support Officer or Elder. The focus is on active land management technologies (e.g., cool burning, biodiversity corridors), connecting students to "Deep Time" resilience and traditional ecological knowledge [Links to VC2CCPAP1].
-                                    </p>
+                                    <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                        Partnership Activity: A guided on-Country experience led by a local Koorie Engagement Support Officer or Elder. Students learn about active land management practices such as cool burning, biodiversity corridors, and seasonal knowledge.
+                                        <ul class="list-disc ml-6 text-gray-700 text-base mt-3 space-y-2 pl-4">
+                                            <li>Centres Indigenous knowledge systems and "Deep Time" resilience</li>
+                                            <li>Strengthens ethical understanding and respect</li>
+                                            <li>Supports relational wellbeing through place-based learning</li>
+                                        </ul>
+                                        <div class="mt-3 text-sm font-medium text-brand-dark/80">Curriculum link: VC2CCPAP1</div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="users" class="w-4 h-4 text-brand-primary"></i> 
+                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                        <i data-lucide="users" class="w-5 h-5 text-brand-primary"></i> 
                                         <span>Activity 3: Formation of "Action Committees" (1 Hour)</span>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        Students self-select into streams: Conservation (Biodiversity), Energy (Solar/Reduction), or Waste (Circular Economy). This begins the process of Student Agency (FISO 2.0).
-                                    </p>
+                                    <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                        Students self-select into one of three Action Committees:
+                                        <ul class="list-disc ml-6 text-gray-700 text-base mt-3 space-y-2 pl-4">
+                                            <li>Conservation (Biodiversity)</li>
+                                            <li>Energy (Solar/Emissions Reduction)</li>
+                                            <li>Waste (Circular Economy)</li>
+                                        </ul>
+                                        <p class="mt-3">This process embeds student voice and agency (FISO 2.0), allowing students to align learning with personal values and interests.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -530,7 +495,10 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            The "messy middle" of innovation. Students engage in "problem-focused coping" (Ojala, 2012) by designing a solution relevant to their immediate environment without digital aid.
+                            <strong>Overview/Purpose:</strong> The "messy middle" of innovation. Students engage in "problem-focused coping" (Ojala, 2012) by designing a solution relevant to their immediate environment without digital aid.
+                        </p>
+                        <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
+                            <strong>Key Wellbeing & Safety Focus:</strong> Nature immersion to reduce stress and cognitive overload, collaborative problem solving to counter feelings of helplessness, teacher facilitation to support group dynamics and inclusion.
                         </p>
                         
                         <button onclick="toggleDetails('d2-details', this)" class="inline-flex items-center gap-2 bg-white border border-brand-primary/30 px-6 py-2 rounded-lg text-brand-primary font-bold text-sm hover:bg-brand-primary hover:text-white transition-all shadow-sm">
@@ -539,30 +507,49 @@
                         </button>
 
                         <div id="d2-details" class="hidden mt-8 bg-brand-cream/50 p-8 rounded-2xl border-l-4 border-brand-primary animate-fade-in w-full">
-                            <h4 class="font-bold text-brand-primary border-b border-brand-primary/10 pb-3 mb-4 text-lg">Detailed Schedule Breakdown</h4>
-                            <div class="space-y-6">
-                                <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="footprints" class="w-4 h-4 text-brand-primary"></i> 
-                                        <span>Activity 4: The "Walking Meeting" (Biophilia) (2 Hours)</span>
+                            <h4 class="font-bold text-brand-primary border-b border-brand-primary/10 pb-3 mb-6 text-lg">Detailed Activities</h4>
+                            <div class="flex flex-col md:flex-row gap-8">
+                                <div class="md:w-3/5 space-y-8">
+                                    <div>
+                                        <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                            <i data-lucide="footprints" class="w-5 h-5 text-brand-primary"></i> 
+                                            <span>Activity 4: The "Walking Meeting" (Biophilia) (2 Hours)</span>
+                                        </div>
+                                        <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                            Action Committees participate in guided hikes where brainstorming occurs while moving through natural environments. Students are prompted to practice "biomimicry" by observing how ecosystems solve problems (e.g. no waste in a forest) and apply these principles to school-based challenges.
+                                            <ul class="list-disc ml-6 text-gray-700 text-base mt-3 space-y-2 pl-4">
+                                                <li>Supports wellbeing through biophilic design</li>
+                                                <li>Encourages creative, low-pressure ideation</li>
+                                                <li>Builds group cohesion</li>
+                                            </ul>
+                                            <div class="mt-3 text-sm font-medium text-brand-dark/80">Curriculum link: VC2CC10Q03</div>
+                                        </div>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        Groups take a hike to brainstorm. They are tasked with "Biomimicry"—looking at how nature solves problems (e.g., no waste in a forest) and applying it to a school context [Links to VC2CC10Q03]. This uses nature immersion to lower cortisol levels (Wellbeing) while generating creative ideas.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="pen-tool" class="w-4 h-4 text-brand-primary"></i> 
-                                        <span>Activity 5: The "Make" Session (3 Hours)</span>
+                                    <div>
+                                        <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                            <i data-lucide="pen-tool" class="w-5 h-5 text-brand-primary"></i> 
+                                            <span>Activity 5: The "Make" Session (3 Hours)</span>
+                                        </div>
+                                        <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                            Offline Ideation: With no internet access, students will design practical initiatives using logic, estimation, and existing school resources. Teachers will act as facilitators rather than instructors, reinforcing student ownership of learning.
+                                            <br><span class="block mt-2 font-medium">Guide questions include:</span>
+                                            <ul class="list-disc ml-6 text-gray-700 text-base mt-2 space-y-2 pl-4">
+                                                <li>How would this work in our school context?</li>
+                                                <li>What impact could this realistically have?</li>
+                                                <li>What can we act on immediately?</li>
+                                            </ul>
+                                            <p class="mt-3">Local community partners (e.g. council representatives, conservation volunteers) attend as mentors, providing authentic feedback and real-world examples and insight.</p>
+                                            <div class="mt-3 text-sm font-medium text-brand-dark/80">Curriculum link: VC2CC10M03</div>
+                                        </div>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        Offline Ideation: Because this is a camp-based activity without internet access, students cannot research specific costs or tech specs. Instead, they must rely on logic, estimation, and resourcefulness [Links to VC2CC10M03]. The guiding questions are: How will it work using existing resources? What is the logic behind the impact? How can we act now? Teachers circulate as consultants to help refine this logic.
-                                    </p>
                                 </div>
-                                <div>
-                                    <p class="text-gray-600 text-sm ml-6 italic">
-                                        Local conservationists (e.g. council members, community volunteers) come in to provide feedback during the brainstorming session, offering knowledge and guidance.
-                                    </p>
+                                <div class="md:w-2/5">
+                                    <!-- Image: Hiking -->
+                                    <div class="img-container rounded-xl shadow-lg h-full">
+                                        <img src="adventure-travel-tourism-hike-people-concept-three-girls-forest.jpg" 
+                                             alt="Students on a walking meeting hike in the forest"
+                                             class="w-full h-full object-cover rounded-xl">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -585,7 +572,10 @@
                         </div>
                         
                         <p class="text-gray-600 text-lg leading-relaxed mb-6 max-w-4xl">
-                            The "Mastery Experience." By pitching to a panel that includes community representatives, students validate their work as real rather than hypothetical, countering institutional betrayal.
+                            <strong>Overview/Purpose:</strong> The "Mastery Experience." Day 3 validates student learning by positioning it as meaningful, real, and valued. Students experience their ideas being taken seriously by school leadership and community representatives.
+                        </p>
+                        <p class="text-gray-600 text-base leading-relaxed mb-6 max-w-4xl italic">
+                            <strong>Key Wellbeing & Safety Focus:</strong> Confidence-building through supported presentation, validation of effort and voice, clear pathways for follow-up action to avoid "tokenism".
                         </p>
                         
                         <button onclick="toggleDetails('d3-details', this)" class="inline-flex items-center gap-2 bg-white border border-brand-accent px-6 py-2 rounded-lg text-brand-dark font-bold text-sm hover:bg-brand-accent hover:text-brand-dark transition-all shadow-sm">
@@ -594,16 +584,36 @@
                         </button>
 
                         <div id="d3-details" class="hidden mt-8 bg-brand-cream/50 p-8 rounded-2xl border-l-4 border-brand-accent animate-fade-in w-full">
-                            <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-4 text-lg">Detailed Schedule Breakdown</h4>
-                            <div class="space-y-6">
+                            <!-- Image: High Five/Celebration -->
+                            <div class="img-container rounded-xl shadow-lg mb-6 max-w-3xl mx-auto">
+                                <img src="man-gives-high-five-woman-forest.jpg" 
+                                     alt="Mentors and students celebrating a successful pitch"
+                                     class="w-full h-auto object-cover rounded-xl max-h-[400px]">
+                            </div>
+
+                            <h4 class="font-bold text-brand-dark border-b border-brand-dark/10 pb-3 mb-6 text-lg">Detailed Activities</h4>
+                            <div class="space-y-8">
                                 <div>
-                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-1">
-                                        <i data-lucide="mic" class="w-4 h-4 text-brand-primary"></i> 
+                                    <div class="flex items-center gap-2 text-brand-dark font-bold mb-2 text-lg">
+                                        <i data-lucide="mic" class="w-5 h-5 text-brand-primary"></i> 
                                         <span>Culminating Task: The Initiative Pitch (2 Hours)</span>
                                     </div>
-                                    <p class="text-gray-600 text-sm ml-6">
-                                        Each Action Committee has 5 minutes to pitch their initiative to a "School Council Panel" (Principal, School Council President, Student Leaders) [Links to VC2CP10S04]. Criteria: Feasibility (Logic), Impact, and Creativity. The outcome is a provisional budget or meeting for the winning idea, validating student agency.
-                                    </p>
+                                    <div class="text-gray-700 text-base ml-7 leading-relaxed">
+                                        Each Action Committee delivers a 5-minute presentation pitch to a School Council Panel consisting of:
+                                        <ul class="list-disc ml-6 text-gray-700 text-base mt-3 space-y-2 pl-4">
+                                            <li>Principal or Assistant Principal</li>
+                                            <li>School Council President</li>
+                                            <li>Student Leadership Representative</li>
+                                        </ul>
+                                        <span class="block mt-3 font-medium">Assessment Criteria:</span>
+                                        <ul class="list-disc ml-6 text-gray-700 text-base mt-2 space-y-2 pl-4">
+                                            <li>Feasibility: logical and achievable within school structures</li>
+                                            <li>Impact: Environmental and wellbeing outcomes</li>
+                                            <li>Creativity: innovative use of existing resources</li>
+                                        </ul>
+                                        <p class="mt-3">The outcome is a provisional budget allocation, pilot approval, or follow-up meeting, ensuring student ideas progress beyond the camp. <a href="#culminating" class="text-link">See Full Task Brief</a>.</p>
+                                        <div class="mt-3 text-sm font-medium text-brand-dark/80">Curriculum link: VC2CP10S04</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -618,10 +628,10 @@
     <section id="curriculum" class="py-24 bg-white border-t border-brand-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">VCAA Alignment (Year 10)</span>
+                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">VCAA Alignment</span>
                 <h2 class="font-serif text-4xl font-bold text-brand-dark mt-2">Curriculum Links</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
-                    The camp's learning experiences are explicitly aligned with the Victorian Curriculum F-10 and are designed to support both academic learning and student wellbeing. Across the camp, activities intentionally build student agency, emotional regulation, collaboration and evidence-informed decision-making, aligning with whole-school wellbeing and safety frameworks (e.g. HIWS principles of agency, voice, and support).
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4 text-base leading-relaxed">
+                    The <a href="#timeline" class="text-link">camp's learning experiences</a> are explicitly aligned with the Victorian Curriculum F-10 and are designed to support both academic learning and student wellbeing. Across the camp, activities intentionally build student agency, emotional regulation, collaboration and evidence-informed decision-making, aligning with whole-school wellbeing and safety frameworks (e.g. <a href="#pedagogy" class="text-link">HIWS principles</a> of agency, voice, and support).
                 </p>
             </div>
             
@@ -632,7 +642,7 @@
                         <div class="bg-white p-3 rounded-xl text-brand-primary group-hover:text-brand-dark transition-colors"><i data-lucide="flask-conical" class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-lg">Science</h3>
-                            <p class="text-xs opacity-70">Global Systems & Ecology</p>
+                            <p class="text-xs opacity-70">Year 10</p>
                         </div>
                     </div>
                 </button>
@@ -643,7 +653,7 @@
                         <div class="bg-white p-3 rounded-xl text-brand-primary group-hover:text-brand-dark transition-colors"><i data-lucide="brain-circuit" class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-lg">Personal & Social</h3>
-                            <p class="text-xs opacity-70">Self-Awareness & Empathy</p>
+                            <p class="text-xs opacity-70">Level 9-10</p>
                         </div>
                     </div>
                 </button>
@@ -654,7 +664,7 @@
                         <div class="bg-white p-3 rounded-xl text-brand-primary group-hover:text-brand-dark transition-colors"><i data-lucide="lightbulb" class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-lg">Critical & Creative</h3>
-                            <p class="text-xs opacity-70">Questions & Possibilities</p>
+                            <p class="text-xs opacity-70">Level 9-10</p>
                         </div>
                     </div>
                 </button>
@@ -665,7 +675,7 @@
                         <div class="bg-white p-3 rounded-xl text-brand-primary group-hover:text-brand-dark transition-colors"><i data-lucide="infinity" class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-lg">Cross-Curriculum</h3>
-                            <p class="text-xs opacity-70">Sustainability & Indigenous</p>
+                            <p class="text-xs opacity-70">Priority</p>
                         </div>
                     </div>
                 </button>
@@ -677,12 +687,12 @@
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/2">
                             <h4 class="font-serif text-2xl font-bold text-brand-dark mb-4">Science (Year 10)</h4>
-                            <p class="text-gray-600 mb-4 text-sm"><strong>VC2S10U10:</strong> Carbon is cycled on Earth through key processes including photosynthesis, respiration, fire, weathering, vulcanism and the combustion of fossil fuels; these processes change the composition of Earth's interrelated systems (atmosphere, biosphere, hydrosphere and lithosphere) over time.</p>
-                            <p class="text-gray-600 text-sm"><strong>VC2S10U11:</strong> The dynamics of global climate change can be modelled and explained by examining the interactions between greenhouse gas emissions and energy exchanges within and between Earth's systems; mitigating human-induced climate change requires addressing various activities including power generation, deforestation, manufacturing, transportation, food production and resource consumption.</p>
+                            <p class="text-gray-600 mb-4 text-base leading-relaxed"><strong>VC2S10U10:</strong> Carbon is cycled on Earth through key processes including photosynthesis, respiration, fire, weathering, vulcanism and the combustion of fossil fuels; these processes change the composition of Earth's interrelated systems (atmosphere, biosphere, hydrosphere and lithosphere) over time.</p>
+                            <p class="text-gray-600 text-base leading-relaxed"><strong>VC2S10U11:</strong> The dynamics of global climate change can be modelled and explained by examining the interactions between greenhouse gas emissions and energy exchanges within and between Earth's systems; mitigating human-induced climate change requires addressing various activities including power generation, deforestation, manufacturing, transportation, food production and resource consumption.</p>
                         </div>
                         <div class="md:w-1/2 border-l-2 border-brand-primary/20 pl-8">
                             <h5 class="font-bold text-brand-primary uppercase text-xs tracking-wide mb-3">Project Application</h5>
-                            <ul class="space-y-4 text-sm text-gray-700">
+                            <ul class="space-y-4 text-base text-gray-700 leading-relaxed">
                                 <li><strong>Day 1 (Climate Fresk):</strong> Through the "Climate Fresk" activity, students collaboratively map the carbon cycle and identify systemic feedback loops using cause-and-effect cards. This evidence-based approach ensures students' understanding of climate systems is grounded in scientific accuracy before engaging with solution design (Assaraf & Orion, 2005; Chi, 2005; Hmelo-Silver & Pfeffer, 2004). By moving from knowledge to action, the activity reduces feelings of helplessness associated with eco-anxiety while maintaining curriculum rigour.</li>
                                 <li><strong>Evidence of Learning:</strong> Student concept maps, group explanations and facilitated discussion demonstrate scientific understanding and systems thinking.</li>
                             </ul>
@@ -694,12 +704,12 @@
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/2">
                             <h4 class="font-serif text-2xl font-bold text-brand-dark mb-4">Personal & Social Capability (Level 9-10)</h4>
-                            <p class="text-gray-600 mb-4 text-sm"><strong>VC2CP10S04:</strong> How to identify and adapt strategies for improving confidence, adaptability and perseverance in response to challenges in different contexts, considering personal and social enablers and barriers.</p>
-                            <p class="text-gray-600 text-sm"><strong>VC2CP10O04:</strong> Strategies for constructing and managing effective teams; when and how to evaluate collaboration and make recommendations for improvements.</p>
+                            <p class="text-gray-600 mb-4 text-base leading-relaxed"><strong>VC2CP10S04:</strong> How to identify and adapt strategies for improving confidence, adaptability and perseverance in response to challenges in different contexts, considering personal and social enablers and barriers.</p>
+                            <p class="text-gray-600 text-base leading-relaxed"><strong>VC2CP10O04:</strong> Strategies for constructing and managing effective teams; when and how to evaluate collaboration and make recommendations for improvements.</p>
                         </div>
                         <div class="md:w-1/2 border-l-2 border-brand-primary/20 pl-8">
                             <h5 class="font-bold text-brand-primary uppercase text-xs tracking-wide mb-3">Project Application</h5>
-                            <ul class="space-y-4 text-sm text-gray-700">
+                            <ul class="space-y-4 text-base text-gray-700 leading-relaxed">
                                 <li><strong>Day 1 & 2:</strong> Students form and work in structured "Action Committees" (groups), requiring role negotiation, conflict management and collaborative decision-making to deliver their final pitch, all supported through teacher facilitation to ensure safety.</li>
                                 <li><strong>Day 2 & 3:</strong> Students engage in problem-focused coping strategies (Ojala, 2012), transforming climate-related concern into collective action by developing a pitch. The "Walking Meeting" intentionally incorporates nature-based regulation strategies to support emotional wellbeing and reduce stress.</li>
                                 <li><strong>Evidence of learning:</strong> Peer feedback, group reflections and teacher observations of collaboration and regulation strategies.</li>
@@ -712,14 +722,14 @@
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/2">
                             <h4 class="font-serif text-2xl font-bold text-brand-dark mb-4">Critical & Creative Thinking (Level 9-10)</h4>
-                            <p class="text-gray-600 mb-4 text-sm"><strong>VC2CC10M03:</strong> The development and adaptation of criteria for evaluating the viability and sustainability of proposed solutions in different contexts.</p>
-                            <p class="text-gray-600 text-sm"><strong>VC2CC10Q03:</strong> Strategies for generating new ideas and possibilities including identifying links and patterns across multiple information sources and perspectives.</p>
+                            <p class="text-gray-600 mb-4 text-base leading-relaxed"><strong>VC2CC10M03:</strong> The development and adaptation of criteria for evaluating the viability and sustainability of proposed solutions in different contexts.</p>
+                            <p class="text-gray-600 text-base leading-relaxed"><strong>VC2CC10Q03:</strong> Strategies for generating new ideas and possibilities including identifying links and patterns across multiple information sources and perspectives.</p>
                         </div>
                         <div class="md:w-1/2 border-l-2 border-brand-primary/20 pl-8">
                             <h5 class="font-bold text-brand-primary uppercase text-xs tracking-wide mb-3">Project Application</h5>
-                            <ul class="space-y-4 text-sm text-gray-700">
+                            <ul class="space-y-4 text-base text-gray-700 leading-relaxed">
                                 <li><strong>Day 2 (Ideation):</strong> During ideation, "Action Committees" evaluate proposed initiatives using a feasibility rubric (budget, impact, timeline and scale) before pitching to leadership. This process supports critical examination of "blue-sky" ideas and models responsible decision-making aligned with real-world school constraints, reinforcing both creative thinking and practical leadership skills.</li>
-                                <li><strong>Evidence of Learning:</strong> Pitch proposals, justification against criteria and leadership feedback.</li>
+                                <li><strong>Evidence of learning:</strong> Pitch proposals, justification against criteria and leadership feedback.</li>
                             </ul>
                         </div>
                     </div>
@@ -729,14 +739,14 @@
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="md:w-1/2">
                             <h4 class="font-serif text-2xl font-bold text-brand-dark mb-4">Cross-Curriculum Priorities</h4>
-                            <p class="text-gray-600 mb-4 text-sm"><strong>VC2CCPAP1 (Indigenous Histories):</strong> Australia has 2 distinct First Nations Peoples; each encompasses a diversity of nations across Australia. Aboriginal and Torres Strait Islander Peoples have occupied the Australian continent and adjacent islands from time immemorial.</p>
-                            <p class="text-gray-600 text-sm"><strong>VC2CCPSFT1 (Sustainability):</strong> Sustainable futures thinking is based on informed views that consider possible and desirable futures. It leads to individual, community, organisational and political action that reduces risk.</p>
+                            <p class="text-gray-600 mb-4 text-base leading-relaxed"><strong>VC2CCPAP1 (Indigenous Histories):</strong> Australia has 2 distinct First Nations Peoples; each encompasses a diversity of nations across Australia. Aboriginal and Torres Strait Islander Peoples have occupied the Australian continent and adjacent islands from time immemorial.</p>
+                            <p class="text-gray-600 text-base leading-relaxed"><strong>VC2CCPSFT1 (Sustainability):</strong> Sustainable futures thinking is based on informed views that consider possible and desirable futures. It leads to individual, community, organisational and political action that reduces risk.</p>
                         </div>
                         <div class="md:w-1/2 border-l-2 border-brand-primary/20 pl-8">
                             <h5 class="font-bold text-brand-primary uppercase text-xs tracking-wide mb-3">Project Application</h5>
-                            <ul class="space-y-4 text-sm text-gray-700">
+                            <ul class="space-y-4 text-base text-gray-700 leading-relaxed">
                                 <li><strong>Day 1:</strong> Engagement with Indigenous ecological knowledge (e.g. fire management practices and totem species) provides students with culturally grounded perspectives on sustainability and land stewardship that predates the current climate crisis. This learning is framed respectfully and in consultation, supporting ethical understanding while broadening students' conceptions of environmental responsibility beyond Western scientific models.</li>
-                                <li><strong>Evidence of Learning:</strong> Guided reflection tasks, discussion participation and application of Indigenous knowledge and perspectives in student learning and proposals.</li>
+                                <li><strong>Evidence of learning:</strong> Guided reflection tasks, discussion participation and application of Indigenous knowledge and perspectives in student learning and proposals.</li>
                             </ul>
                         </div>
                     </div>
@@ -751,26 +761,33 @@
             <h2 class="font-serif text-3xl font-bold mb-6">Culminating Task: Pitching for the Future</h2>
             <div class="inline-block bg-brand-accent/20 border border-brand-accent rounded-full px-4 py-1 text-sm font-bold text-brand-accent mb-8">The "Mastery Experience"</div>
             
-            <div class="bg-white/5 backdrop-blur-sm p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default text-left flex items-start gap-8 group">
+            <div class="bg-white/5 backdrop-blur-sm p-10 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default text-left flex flex-col md:flex-row items-start gap-8 group">
                 <div class="text-5xl bg-brand-primary/20 p-6 rounded-2xl group-hover:scale-110 transition-transform">📢</div>
-                <div>
-                    <h3 class="font-bold text-2xl mb-4 text-white">Camp-Based Constraints</h3>
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4 flex-wrap gap-4">
+                        <h3 class="font-bold text-2xl text-white">Camp-Based Constraints</h3>
+                        <a href="Task_Brief.pdf" download class="bg-brand-accent hover:bg-white text-brand-dark px-5 py-2 rounded-full font-bold text-sm transition-all shadow-md flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Download Task Brief
+                        </a>
+                    </div>
+                    
                     <p class="text-gray-300 text-base leading-relaxed mb-6">
                         This task is designed to be completed <strong>offline</strong> during the camp. Students will not have access to the internet to research costs or technical specifications. The focus is on logic, estimation, and resourcefulness. Students must use their critical thinking to answer: <em>"How can we solve this problem using what we have?"</em> rather than <em>"How much money do we need to buy a solution?"</em>
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/10 pt-6">
                         <div>
                             <span class="block text-brand-primary font-bold text-sm mb-1">Feasibility Logic</span>
-                            <span class="text-xs text-gray-400">Does the plan make sense given the school's layout and resources?</span>
+                            <span class="text-sm text-gray-400 leading-relaxed">Does the plan make sense given the school's layout and resources?</span>
                         </div>
                         <div>
                             <span class="block text-brand-primary font-bold text-sm mb-1">HIWS-5 Mastery</span>
-                            <span class="text-xs text-gray-400">Can the group articulate their idea with confidence and clarity?</span>
+                            <span class="text-sm text-gray-400 leading-relaxed">Can the group articulate their idea with confidence and clarity?</span>
                         </div>
                         <div>
                             <span class="block text-brand-primary font-bold text-sm mb-1">Team Cohesion</span>
-                            <span class="text-xs text-gray-400">Did every member contribute to the solution?</span>
+                            <span class="text-sm text-gray-400 leading-relaxed">Did every member contribute to the solution?</span>
                         </div>
                     </div>
                 </div>
@@ -782,22 +799,39 @@
     <section id="references" class="py-16 bg-white border-t border-gray-200">
         <div class="max-w-4xl mx-auto px-4">
             <h3 class="font-serif text-2xl font-bold text-brand-dark mb-8 text-center">Key References & Academic Literacy</h3>
-            <ul class="space-y-4 text-sm text-gray-600">
+            
+            <ul class="space-y-4 text-sm text-gray-600 mb-12">
                 <li class="pl-4 border-l-2 border-brand-primary">Allen, K.-A., Grove, C., Berger, E., Marinucci, A., & Warton, W. (2022). <em>High impact wellbeing strategies resource.</em> Victorian Department of Education.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Assaraf, O. B.-Z., & Orion, N. (2005). Development of system thinking skills in the context of earth system education. <em>Journal of Research in Science Teaching</em>, 42(5), 518–560. https://doi.org/10.1002/tea.20061</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. <em>Psychological Review</em>, 84(2), 191–215. https://doi.org/10.1037/0033-295X.84.2.191</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Cebrián, G., Boqué, A., Olano, J. X., & Prieto, J. (2025). School climate assemblies: an educational tool for empowering pupils. <em>Sustainability Science</em>, 20(1), 135–153.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Chi, M. T. H. (2005). Commonsense Conceptions of Emergent Processes: Why Some Misconceptions Are Robust. <em>The Journal of the Learning Sciences</em>, 14(2), 161–199. https://doi.org/10.1207/s15327809jls1402_1</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Assaraf, O. B.-Z., & Orion, N. (2005). Development of system thinking skills in the context of earth system education. <em>Journal of Research in Science Teaching</em>, 42(5), 518-560.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. <em>Psychological Review</em>, 84(2), 191-215.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Bandura, A. (1997). <em>Self-efficacy: The exercise of control.</em> W.H. Freeman.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Chi, M. T. H. (2005). Commonsense conceptions of emergent processes: Why some misconceptions are robust. <em>The Journal of the Learning Sciences</em>, 14(2), 161-199.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Deci, E. L., Olafsen, A. H., & Ryan, R. M. (2017). Self-Determination Theory in Work Organizations: The State of a Science. <em>Annual Review of Organizational Psychology and Organizational Behavior</em>, 4, 19-43.</li>
                 <li class="pl-4 border-l-2 border-brand-primary">Department of Education and Training (DET). (2021). <em>Framework for Improving Student Outcomes (FISO 2.0).</em> State Government of Victoria.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Department of Education. (n.d.). <em>High Impact Wellbeing Strategies.</em> Victorian Government. https://arc.educationapps.vic.gov.au/learning/sites/hiws/3131/High-Impact-Wellbeing-Strategies</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Hargis, K. (2024). Practicing Climate Action in a K-12 School Using a Whole Institution Approach. In <em>Whole School Approaches to Sustainability.</em> Springer.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Hickman, C., Marks, E., Pihkala, P., et al. (2021). Climate anxiety in children and young people and their beliefs about government responses to climate change: A global survey. <em>The Lancet Planetary Health</em>, 5(12), e863–e873.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Hmelo-Silver, C. E., & Pfeffer, M. G. (2004). Comparing expert and novice understanding of a complex system from the perspective of structures, behaviors, and functions. <em>Cognitive Science</em>, 28(1), 127–138. https://doi.org/10.1016/S0364-0213(03)00065-X</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Ojala, M. (2012). Hope and climate change: The importance of hope for environmental engagement among young people. <em>Environmental Education Research</em>, 18(5), 625–642.</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Pozas, M., Letzel-Alt, V., Lindner, K.-T., & Schwab, S. (2021). DI (Differentiated Instruction) Does Matter! The Effects of DI on Secondary School Students' Well-Being, Social Inclusion and Academic Self-Concept. <em>Frontiers in Education</em>, 6. https://doi.org/10.3389/feduc.2021.729027</li>
-                <li class="pl-4 border-l-2 border-brand-primary">Rigby, C. W., Rosen, A., Berry, H. L., & Hart, C. R. (2011). If the land's sick, we're sick: The impact of prolonged drought on the social and emotional well-being of Aboriginal communities. <em>The Australian Journal of Rural Health</em>, 19(5).</li>
-                <li class="pl-4 border-l-2 border-brand-primary">World Health Organisation. (1986). <em>Ottawa Charter for Health Promotion.</em> WHO.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Department of Education. (n.d.). <em>High Impact Wellbeing Strategies.</em> Victorian Government.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Hickman, C., Marks, E., Pihkala, P., Clayton, S., Lewandowski, R. E., Mayall, E. E., Wray, B., Mellor, C., & Susteren, L. van. (2021). Climate anxiety in children and young people and their beliefs about government responses to climate change: A global survey. <em>The Lancet Planetary Health</em>, 5(12), e863-e873.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Hmelo-Silver, C. E., & Pfeffer, M. G. (2004). Comparing expert and novice understanding of a complex system from the perspective of structures, behaviors, and functions. <em>Cognitive Science</em>, 28(1), 127-138.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Ojala, M. (2012). Hope and climate change: The importance of hope for environmental engagement among young people. <em>Environmental Education Research</em>, 18(5), 625-642.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Pozas, M., Letzel-Alt, V., Lindner, K.-T., & Schwab, S. (2021). DI (Differentiated Instruction) Does Matter! The Effects of DI on Secondary School Students' Well-Being, Social Inclusion and Academic Self-Concept. <em>Frontiers in Education</em>, 6.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Reeve, J. (2002). Self-determination theory applied to educational settings. In E. L. Deci & R. M. Ryan (Eds.), <em>Handbook of self-determination research</em> (pp. 183-203). University of Rochester Press.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Rigby, C. W., Rosen, A., Berry, H. L., & Hart, C. R. (2011). If the land's sick, we're sick: The impact of prolonged drought on the social and emotional well-being of Aboriginal communities in rural New South Wales. <em>The Australian Journal of Rural Health</em>, 19(5), 249-254.</li>
+                <li class="pl-4 border-l-2 border-brand-primary">Victorian Curriculum and Assessment Authority [VCAA]. (n.d.). <em>Victorian Curriculum Foundation-10.</em> https://victoriancurriculum.vcaa.vic.edu.au/</li>
+                <li class="pl-4 border-l-2 border-brand-primary">World Health Organisation. (1986). <em>Ottawa charter for health promotion.</em></li>
             </ul>
+
+            <!-- AI Declaration Section -->
+            <div class="mt-8 p-8 bg-brand-cream/40 rounded-2xl border border-brand-primary/20">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-brand-primary/10 rounded-lg text-brand-primary">
+                        <i data-lucide="bot" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-brand-dark">AI Use Declaration</h4>
+                </div>
+                <div class="text-gray-600 text-sm leading-relaxed italic">
+                    [Insert your AI declaration statement here. For example: "Artificial intelligence tools were used to assist in the drafting and formatting of this website content, specifically for code generation and design structure. All academic content and references have been verified by the authors."]
+                </div>
+            </div>
+
         </div>
     </section>
 
